@@ -1,0 +1,2068 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="Szwalnia11Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Czesci_Obsluga">
+    <Key>
+      <PropertyRef Name="ID_Czesci_Obsluga" />
+    </Key>
+    <Property Name="ID_Czesci_Obsluga" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ID_Obsluga_Techniczna" Type="Int32" Nullable="false" />
+    <Property Name="ID_Element" Type="Int32" Nullable="false" />
+    <Property Name="Liczba" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Elementy" Relationship="Self.FK__Czesci_Ob__ID_El__4B7734FF" FromRole="Czesci_Obsluga" ToRole="Elementy" />
+    <NavigationProperty Name="Obsluga_Techniczna" Relationship="Self.FK__Czesci_Ob__ID_Ob__4A8310C6" FromRole="Czesci_Obsluga" ToRole="Obsluga_Techniczna" />
+  </EntityType>
+  <EntityType Name="Dokumentacja_Proces">
+    <Key>
+      <PropertyRef Name="ID_Dokumentacja_Proces" />
+    </Key>
+    <Property Name="ID_Dokumentacja_Proces" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ID_Dokumentacji" Type="Int32" Nullable="false" />
+    <Property Name="ID_Proces_Technologiczny" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Dokumentacje" Relationship="Self.FK__Dokumenta__ID_Do__3A4CA8FD" FromRole="Dokumentacja_Proces" ToRole="Dokumentacje" />
+    <NavigationProperty Name="Proces_Technologiczny" Relationship="Self.FK__Dokumenta__ID_Pr__3B40CD36" FromRole="Dokumentacja_Proces" ToRole="Proces_Technologiczny" />
+  </EntityType>
+  <EntityType Name="Dokumentacje">
+    <Key>
+      <PropertyRef Name="ID_Dokumentacji" />
+    </Key>
+    <Property Name="ID_Dokumentacji" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ID_Rodzaj_Dokumentacji" Type="Int32" Nullable="false" />
+    <Property Name="ID_Pracownika" Type="Int32" Nullable="false" />
+    <Property Name="Data_Wykonania" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="Plik" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="Dokumentacja_Proces" Relationship="Self.FK__Dokumenta__ID_Do__3A4CA8FD" FromRole="Dokumentacje" ToRole="Dokumentacja_Proces" />
+    <NavigationProperty Name="Pracownicy" Relationship="Self.FK__Dokumenta__ID_Pr__3493CFA7" FromRole="Dokumentacje" ToRole="Pracownicy" />
+    <NavigationProperty Name="Rodzaj_Dokumentacji" Relationship="Self.FK__Dokumenta__ID_Ro__339FAB6E" FromRole="Dokumentacje" ToRole="Rodzaj_Dokumentacji" />
+  </EntityType>
+  <EntityType Name="Dostarczenia_Wewn">
+    <Key>
+      <PropertyRef Name="ID_Dostarczenia" />
+    </Key>
+    <Property Name="ID_Dostarczenia" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ID_Pracownicy" Type="Int32" />
+    <Property Name="ID_Dostawy" Type="Int32" />
+    <Property Name="ID_element" Type="Int32" />
+    <Property Name="Ilosc_Dostarczona" Type="Double" />
+    <Property Name="ID_Miejsca" Type="Int32" />
+    <Property Name="Data_Dostarczenia" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Zamowienia_Dostawy" Relationship="Self.FK__Dostarcze__ID_Do__1F98B2C1" FromRole="Dostarczenia_Wewn" ToRole="Zamowienia_Dostawy" />
+    <NavigationProperty Name="Elementy" Relationship="Self.FK__Dostarcze__ID_el__208CD6FA" FromRole="Dostarczenia_Wewn" ToRole="Elementy" />
+    <NavigationProperty Name="Miejsca" Relationship="Self.FK__Dostarcze__ID_Mi__2180FB33" FromRole="Dostarczenia_Wewn" ToRole="Miejsca" />
+    <NavigationProperty Name="Pracownicy" Relationship="Self.FK__Dostarcze__ID_Pr__1EA48E88" FromRole="Dostarczenia_Wewn" ToRole="Pracownicy" />
+    <NavigationProperty Name="Proces_Produkcyjny" Relationship="Self.FK__Proces_Pr__ID_Do__5AB9788F" FromRole="Dostarczenia_Wewn" ToRole="Proces_Produkcyjny" />
+  </EntityType>
+  <EntityType Name="Dostarczenia_Zewn">
+    <Key>
+      <PropertyRef Name="ID_Dostarczenia" />
+    </Key>
+    <Property Name="ID_Dostarczenia" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ID_Pracownicy" Type="Int32" />
+    <Property Name="ID_Zamowienia" Type="Int32" />
+    <Property Name="ID_element" Type="Int32" />
+    <Property Name="Ilosc_Dostarczona" Type="Double" />
+    <Property Name="ID_Miejsca" Type="Int32" />
+    <Property Name="Data_Dostarczenia" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Elementy" Relationship="Self.FK__Dostarcze__ID_el__2645B050" FromRole="Dostarczenia_Zewn" ToRole="Elementy" />
+    <NavigationProperty Name="Miejsca" Relationship="Self.FK__Dostarcze__ID_Mi__2739D489" FromRole="Dostarczenia_Zewn" ToRole="Miejsca" />
+    <NavigationProperty Name="Pracownicy" Relationship="Self.FK__Dostarcze__ID_Pr__245D67DE" FromRole="Dostarczenia_Zewn" ToRole="Pracownicy" />
+    <NavigationProperty Name="Zamowienia" Relationship="Self.FK__Dostarcze__ID_Za__25518C17" FromRole="Dostarczenia_Zewn" ToRole="Zamowienia" />
+  </EntityType>
+  <EntityType Name="Dostawcy_Zaopatrzenie">
+    <Key>
+      <PropertyRef Name="ID_Dostawcy" />
+    </Key>
+    <Property Name="ID_Dostawcy" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Nazwa" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+    <Property Name="Telefon_1" Type="Int32" />
+    <Property Name="Telefon_2" Type="Int32" />
+    <Property Name="Email" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Oferta" Relationship="Self.FK__Oferta__ID_Dosta__07C12930" FromRole="Dostawcy_Zaopatrzenie" ToRole="Oferta" />
+  </EntityType>
+  <EntityType Name="Dostawy_Zawartosc">
+    <Key>
+      <PropertyRef Name="ID_Dostawy_Zawartosc" />
+    </Key>
+    <Property Name="ID_Dostawy_Zawartosc" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ID_Dostawy" Type="Int32" />
+    <Property Name="ID_Element" Type="Int32" />
+    <Property Name="ID_oferta" Type="Int32" />
+    <Property Name="Ilosc_Dostarczona" Type="Int32" />
+    <NavigationProperty Name="Zamowienia_Dostawy" Relationship="Self.FK__Dostawy_Z__ID_Do__19DFD96B" FromRole="Dostawy_Zawartosc" ToRole="Zamowienia_Dostawy" />
+    <NavigationProperty Name="Elementy" Relationship="Self.FK__Dostawy_Z__ID_El__1AD3FDA4" FromRole="Dostawy_Zawartosc" ToRole="Elementy" />
+    <NavigationProperty Name="Oferta" Relationship="Self.FK__Dostawy_Z__ID_of__1BC821DD" FromRole="Dostawy_Zawartosc" ToRole="Oferta" />
+  </EntityType>
+  <EntityType Name="Dzialy">
+    <Key>
+      <PropertyRef Name="ID_Dzialu" />
+    </Key>
+    <Property Name="ID_Dzialu" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Nazwa_dzialu" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="Pracownicy_Zatrudnienie" Relationship="Self.FK__Pracownic__ID_Dz__4CA06362" FromRole="Dzialy" ToRole="Pracownicy_Zatrudnienie" />
+    <NavigationProperty Name="Srodki_Trwale" Relationship="Self.FK__Srodki_Tr__ID_Dz__2E1BDC42" FromRole="Dzialy" ToRole="Srodki_Trwale" />
+  </EntityType>
+  <EntityType Name="Elementy">
+    <Key>
+      <PropertyRef Name="ID_Element" />
+    </Key>
+    <Property Name="ID_Element" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ID_Element_Typ" Type="Int32" />
+    <Property Name="Element_Nazwa" Type="String" MaxLength="35" FixedLength="false" Unicode="false" />
+    <Property Name="Okres_Przydatnosci_Miesiace" Type="Int32" />
+    <NavigationProperty Name="Czesci_Obsluga" Relationship="Self.FK__Czesci_Ob__ID_El__4B7734FF" FromRole="Elementy" ToRole="Czesci_Obsluga" />
+    <NavigationProperty Name="Dostarczenia_Wewn" Relationship="Self.FK__Dostarcze__ID_el__208CD6FA" FromRole="Elementy" ToRole="Dostarczenia_Wewn" />
+    <NavigationProperty Name="Dostarczenia_Zewn" Relationship="Self.FK__Dostarcze__ID_el__2645B050" FromRole="Elementy" ToRole="Dostarczenia_Zewn" />
+    <NavigationProperty Name="Dostawy_Zawartosc" Relationship="Self.FK__Dostawy_Z__ID_El__1AD3FDA4" FromRole="Elementy" ToRole="Dostawy_Zawartosc" />
+    <NavigationProperty Name="Elementy_Proces" Relationship="Self.FK__Elementy___ID_El__531856C7" FromRole="Elementy" ToRole="Elementy_Proces" />
+    <NavigationProperty Name="Elementy_Cechy" Relationship="Self.FK__Elementy___ID_El__7F2BE32F" FromRole="Elementy" ToRole="Elementy_Cechy" />
+    <NavigationProperty Name="Elementy_Typy" Relationship="Self.FK__Elementy__ID_Ele__7C4F7684" FromRole="Elementy" ToRole="Elementy_Typy" />
+    <NavigationProperty Name="Oferta" Relationship="Self.FK__Oferta__ID_Eleme__06CD04F7" FromRole="Elementy" ToRole="Oferta" />
+    <NavigationProperty Name="Zamowienie_Element" Relationship="Self.FK__Zamowieni__ID_El__2B0A656D" FromRole="Elementy" ToRole="Zamowienie_Element" />
+    <NavigationProperty Name="Zawartosc" Relationship="Self.FK__Zawartosc__ID_El__160F4887" FromRole="Elementy" ToRole="Zawartosc" />
+  </EntityType>
+  <EntityType Name="Elementy_Cechy">
+    <Key>
+      <PropertyRef Name="ID_Elementy_Cechy" />
+    </Key>
+    <Property Name="ID_Elementy_Cechy" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ID_Element" Type="Int32" />
+    <Property Name="ID_Cecha" Type="Int32" />
+    <Property Name="Wartosc_Cechy_Liczbowa" Type="Single" />
+    <Property Name="ID_Jednostka" Type="Int32" />
+    <Property Name="Wartosc_Cechy_Slowna" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Elementy" Relationship="Self.FK__Elementy___ID_El__7F2BE32F" FromRole="Elementy_Cechy" ToRole="Elementy" />
+    <NavigationProperty Name="Elementy_Cechy_Slownik" Relationship="Self.FK__Elementy___ID_Ce__00200768" FromRole="Elementy_Cechy" ToRole="Elementy_Cechy_Slownik" />
+    <NavigationProperty Name="Elementy_Jednostki" Relationship="Self.FK__Elementy___ID_Je__01142BA1" FromRole="Elementy_Cechy" ToRole="Elementy_Jednostki" />
+  </EntityType>
+  <EntityType Name="Elementy_Cechy_Slownik">
+    <Key>
+      <PropertyRef Name="ID_Cecha" />
+    </Key>
+    <Property Name="ID_Cecha" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Cecha" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Elementy_Cechy" Relationship="Self.FK__Elementy___ID_Ce__00200768" FromRole="Elementy_Cechy_Slownik" ToRole="Elementy_Cechy" />
+  </EntityType>
+  <EntityType Name="Elementy_Jednostki">
+    <Key>
+      <PropertyRef Name="ID_jednostka" />
+    </Key>
+    <Property Name="ID_jednostka" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Jednostka" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Elementy_Cechy" Relationship="Self.FK__Elementy___ID_Je__01142BA1" FromRole="Elementy_Jednostki" ToRole="Elementy_Cechy" />
+    <NavigationProperty Name="Oferta" Relationship="Self.FK__Oferta__ID_Jedno__08B54D69" FromRole="Elementy_Jednostki" ToRole="Oferta" />
+  </EntityType>
+  <EntityType Name="Elementy_Proces">
+    <Key>
+      <PropertyRef Name="ID_Elementy_Proces" />
+    </Key>
+    <Property Name="ID_Elementy_Proces" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ID_Proces_Technologiczny" Type="Int32" Nullable="false" />
+    <Property Name="ID_Element" Type="Int32" Nullable="false" />
+    <Property Name="Liczba" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Elementy" Relationship="Self.FK__Elementy___ID_El__531856C7" FromRole="Elementy_Proces" ToRole="Elementy" />
+    <NavigationProperty Name="Proces_Technologiczny" Relationship="Self.FK__Elementy___ID_Pr__5224328E" FromRole="Elementy_Proces" ToRole="Proces_Technologiczny" />
+    <NavigationProperty Name="Material_Na_Produkcji" Relationship="Self.FK__Material___ID_El__5E8A0973" FromRole="Elementy_Proces" ToRole="Material_Na_Produkcji" />
+  </EntityType>
+  <EntityType Name="Elementy_Typy">
+    <Key>
+      <PropertyRef Name="ID_Element_Typ" />
+    </Key>
+    <Property Name="ID_Element_Typ" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Typ" Type="String" MaxLength="35" FixedLength="false" Unicode="false" />
+    <Property Name="Czy_wlasne" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="Elementy" Relationship="Self.FK__Elementy__ID_Ele__7C4F7684" FromRole="Elementy_Typy" ToRole="Elementy" />
+  </EntityType>
+  <EntityType Name="Etapy_W_Procesie">
+    <Key>
+      <PropertyRef Name="ID_Etapy_W_Procesie" />
+    </Key>
+    <Property Name="ID_Etapy_W_Procesie" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ID_Proces_Technologiczny" Type="Int32" Nullable="false" />
+    <Property Name="ID_Etapu" Type="Int32" Nullable="false" />
+    <Property Name="Czas" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Rodzaj_Etapu" Relationship="Self.FK__Etapy_W_P__ID_Et__56E8E7AB" FromRole="Etapy_W_Procesie" ToRole="Rodzaj_Etapu" />
+    <NavigationProperty Name="Proces_Technologiczny" Relationship="Self.FK__Etapy_W_P__ID_Pr__55F4C372" FromRole="Etapy_W_Procesie" ToRole="Proces_Technologiczny" />
+  </EntityType>
+  <EntityType Name="Etat">
+    <Key>
+      <PropertyRef Name="ID_Etat" />
+    </Key>
+    <Property Name="ID_Etat" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Wymiar_Etatu" Type="String" MaxLength="5" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Uwagi" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Pracownicy_Zatrudnienie" Relationship="Self.FK__Pracownic__ID_Et__4AB81AF0" FromRole="Etat" ToRole="Pracownicy_Zatrudnienie" />
+  </EntityType>
+  <EntityType Name="Faktury_Zewnetrzne">
+    <Key>
+      <PropertyRef Name="ID_Faktura_zewnetrzna" />
+    </Key>
+    <Property Name="ID_Faktura_zewnetrzna" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Nr_Faktury" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="ID_Grupa" Type="Int32" />
+    <Property Name="Nazwa_Firmy" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Netto" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Brutto" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Podatek" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="Grupa" Relationship="Self.FK__Faktury_Z__ID_Gr__5DCAEF64" FromRole="Faktury_Zewnetrzne" ToRole="Grupa" />
+  </EntityType>
+  <EntityType Name="Grupa">
+    <Key>
+      <PropertyRef Name="ID_Grupa" />
+    </Key>
+    <Property Name="ID_Grupa" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Nazwa" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Faktury_Zewnetrzne" Relationship="Self.FK__Faktury_Z__ID_Gr__5DCAEF64" FromRole="Grupa" ToRole="Faktury_Zewnetrzne" />
+  </EntityType>
+  <EntityType Name="Jezyk">
+    <Key>
+      <PropertyRef Name="ID_Jezyk" />
+    </Key>
+    <Property Name="ID_Jezyk" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Jezyk1" Type="String" MaxLength="40" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Informacje_Dodatkowe" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="Znajomosc_Jezykow" Relationship="Self.FK__Znajomosc__ID_Je__534D60F1" FromRole="Jezyk" ToRole="Znajomosc_Jezykow" />
+  </EntityType>
+  <EntityType Name="Klienci">
+    <Key>
+      <PropertyRef Name="ID_Klienta" />
+    </Key>
+    <Property Name="ID_Klienta" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Imie" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Nazwisko" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Nazwa_Firmy" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="NIP" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="Adres" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Odleglosc_km" Type="String" MaxLength="15" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Telefon" Type="String" MaxLength="15" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="E_Mail" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="Zamowienia" Relationship="Self.FK__Zamowieni__ID_Kl__571DF1D5" FromRole="Klienci" ToRole="Zamowienia" />
+  </EntityType>
+  <EntityType Name="Kontrola_Efektywnosci">
+    <Key>
+      <PropertyRef Name="ID_Kontrola_Efektywnosci" />
+    </Key>
+    <Property Name="ID_Kontrola_Efektywnosci" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ID_Procesu_Produkcyjnego" Type="Int32" Nullable="false" />
+    <Property Name="Data_Kontroli" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="Dokument" Type="Binary" MaxLength="Max" FixedLength="false" Nullable="false" />
+    <Property Name="Uwagi" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
+    <Property Name="Zgodnosc_Zamowienia" Type="Boolean" Nullable="false" />
+    <Property Name="Liczba_Poprawnych" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Proces_Produkcyjny" Relationship="Self.FK__Kontrola___ID_Pr__69FBBC1F" FromRole="Kontrola_Efektywnosci" ToRole="Proces_Produkcyjny" />
+  </EntityType>
+  <EntityType Name="Kurierzy">
+    <Key>
+      <PropertyRef Name="ID_Kurier" />
+    </Key>
+    <Property Name="ID_Kurier" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Nazwa" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="Telefon_1" Type="Int32" />
+    <Property Name="Telefon_2" Type="Int32" />
+    <Property Name="Email" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Umowy_Kurierzy" Relationship="Self.FK__Umowy_Kur__ID_Ku__03F0984C" FromRole="Kurierzy" ToRole="Umowy_Kurierzy" />
+  </EntityType>
+  <EntityType Name="Maszyny">
+    <Key>
+      <PropertyRef Name="ID_Maszyny" />
+    </Key>
+    <Property Name="ID_Maszyny" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ID_Srodki_Trwale" Type="Int32" Nullable="false" />
+    <Property Name="ID_Rodzaj_Maszyny" Type="Int32" Nullable="false" />
+    <Property Name="Resurs_Rbh" Type="Int32" Nullable="false" />
+    <Property Name="Serwis_Co_Ile" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Rodzaj_Maszyny" Relationship="Self.FK__Maszyny__ID_Rodz__42E1EEFE" FromRole="Maszyny" ToRole="Rodzaj_Maszyny" />
+    <NavigationProperty Name="Srodki_Trwale" Relationship="Self.FK__Maszyny__ID_Srod__41EDCAC5" FromRole="Maszyny" ToRole="Srodki_Trwale" />
+    <NavigationProperty Name="Obsluga_Techniczna" Relationship="Self.FK__Obsluga_T__ID_Ma__45BE5BA9" FromRole="Maszyny" ToRole="Obsluga_Techniczna" />
+    <NavigationProperty Name="Przydzial_Zasobow" Relationship="Self.FK__Przydzial__ID_Ma__671F4F74" FromRole="Maszyny" ToRole="Przydzial_Zasobow" />
+  </EntityType>
+  <EntityType Name="Maszyny_Proces">
+    <Key>
+      <PropertyRef Name="ID_Maszyny_Proces" />
+    </Key>
+    <Property Name="ID_Maszyny_Proces" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ID_Proces_Technologiczny" Type="Int32" Nullable="false" />
+    <Property Name="ID_Rodzaj_Maszyny" Type="Int32" Nullable="false" />
+    <Property Name="Liczba_Maszyn" Type="Int32" Nullable="false" />
+    <Property Name="Liczba_Rbh_Maszyna" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Proces_Technologiczny" Relationship="Self.FK__Maszyny_P__ID_Pr__3E1D39E1" FromRole="Maszyny_Proces" ToRole="Proces_Technologiczny" />
+    <NavigationProperty Name="Rodzaj_Maszyny" Relationship="Self.FK__Maszyny_P__ID_Ro__3F115E1A" FromRole="Maszyny_Proces" ToRole="Rodzaj_Maszyny" />
+  </EntityType>
+  <EntityType Name="Material_Na_Produkcji">
+    <Key>
+      <PropertyRef Name="ID_Material_Na_Produkcji" />
+    </Key>
+    <Property Name="ID_Material_Na_Produkcji" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ID_Procesu_Produkcyjnego" Type="Int32" Nullable="false" />
+    <Property Name="ID_Elementy_Proces" Type="Int32" Nullable="false" />
+    <Property Name="Odpad" Type="Double" />
+    <Property Name="Niezuzyty_material" Type="Double" />
+    <Property Name="Magazyn_odebral_material" Type="Boolean" />
+    <NavigationProperty Name="Elementy_Proces" Relationship="Self.FK__Material___ID_El__5E8A0973" FromRole="Material_Na_Produkcji" ToRole="Elementy_Proces" />
+    <NavigationProperty Name="Proces_Produkcyjny" Relationship="Self.FK__Material___ID_Pr__5D95E53A" FromRole="Material_Na_Produkcji" ToRole="Proces_Produkcyjny" />
+  </EntityType>
+  <EntityType Name="Miejsca">
+    <Key>
+      <PropertyRef Name="ID_Miejsca" />
+    </Key>
+    <Property Name="ID_Miejsca" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Nazwa" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Dostarczenia_Wewn" Relationship="Self.FK__Dostarcze__ID_Mi__2180FB33" FromRole="Miejsca" ToRole="Dostarczenia_Wewn" />
+    <NavigationProperty Name="Dostarczenia_Zewn" Relationship="Self.FK__Dostarcze__ID_Mi__2739D489" FromRole="Miejsca" ToRole="Dostarczenia_Zewn" />
+  </EntityType>
+  <EntityType Name="Obsluga_Techniczna">
+    <Key>
+      <PropertyRef Name="ID_Obsluga_Techniczna" />
+    </Key>
+    <Property Name="ID_Obsluga_Techniczna" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ID_Maszyny" Type="Int32" Nullable="false" />
+    <Property Name="ID_Rodzaj_Obslugi" Type="Int32" Nullable="false" />
+    <Property Name="Data_Wykonania" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="ID_Pracownika" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Czesci_Obsluga" Relationship="Self.FK__Czesci_Ob__ID_Ob__4A8310C6" FromRole="Obsluga_Techniczna" ToRole="Czesci_Obsluga" />
+    <NavigationProperty Name="Maszyny" Relationship="Self.FK__Obsluga_T__ID_Ma__45BE5BA9" FromRole="Obsluga_Techniczna" ToRole="Maszyny" />
+    <NavigationProperty Name="Pracownicy" Relationship="Self.FK__Obsluga_T__ID_Pr__47A6A41B" FromRole="Obsluga_Techniczna" ToRole="Pracownicy" />
+    <NavigationProperty Name="Rodzaj_Obslugi" Relationship="Self.FK__Obsluga_T__ID_Ro__46B27FE2" FromRole="Obsluga_Techniczna" ToRole="Rodzaj_Obslugi" />
+  </EntityType>
+  <EntityType Name="Oferta">
+    <Key>
+      <PropertyRef Name="ID_Oferta" />
+    </Key>
+    <Property Name="ID_Oferta" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ID_Element" Type="Int32" />
+    <Property Name="Element_Oznaczenie" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="ID_Dostawcy" Type="Int32" />
+    <Property Name="Cena_Jedn" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="Data_Oferty" Type="DateTime" Precision="0" />
+    <Property Name="Ilosc_Minimalna" Type="Int32" />
+    <Property Name="Ilosc_Maksymalna" Type="Int32" />
+    <Property Name="Ilosc_W_Opakowaniu_Pojedynczym" Type="Single" />
+    <Property Name="ID_Jednostka" Type="Int32" />
+    <Property Name="Ilosc_W_Opakowaniu_Zbiorczym" Type="Int32" />
+    <Property Name="Deklarowany_czas_dostawy" Type="Int32" />
+    <NavigationProperty Name="Dostawcy_Zaopatrzenie" Relationship="Self.FK__Oferta__ID_Dosta__07C12930" FromRole="Oferta" ToRole="Dostawcy_Zaopatrzenie" />
+    <NavigationProperty Name="Dostawy_Zawartosc" Relationship="Self.FK__Dostawy_Z__ID_of__1BC821DD" FromRole="Oferta" ToRole="Dostawy_Zawartosc" />
+    <NavigationProperty Name="Elementy" Relationship="Self.FK__Oferta__ID_Eleme__06CD04F7" FromRole="Oferta" ToRole="Elementy" />
+    <NavigationProperty Name="Elementy_Jednostki" Relationship="Self.FK__Oferta__ID_Jedno__08B54D69" FromRole="Oferta" ToRole="Elementy_Jednostki" />
+  </EntityType>
+  <EntityType Name="Pensja">
+    <Key>
+      <PropertyRef Name="ID_Pensja" />
+    </Key>
+    <Property Name="ID_Pensja" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Pensja1" Type="Single" Nullable="false" />
+    <NavigationProperty Name="Stanowisko" Relationship="Self.FK__Stanowisk__ID_Pe__33D4B598" FromRole="Pensja" ToRole="Stanowisko" />
+  </EntityType>
+  <EntityType Name="Polki">
+    <Key>
+      <PropertyRef Name="ID_Polka" />
+    </Key>
+    <Property Name="ID_Polka" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Rozszerzenie_ID" Type="String" MaxLength="2" FixedLength="false" Unicode="false" />
+    <Property Name="ID_Rozmiar_Polki" Type="Int32" />
+    <NavigationProperty Name="Polki_Rozmiary" Relationship="Self.FK__Polki__ID_Rozmia__6B24EA82" FromRole="Polki" ToRole="Polki_Rozmiary" />
+    <NavigationProperty Name="Zawartosc" Relationship="Self.FK__Zawartosc__ID_Po__151B244E" FromRole="Polki" ToRole="Zawartosc" />
+  </EntityType>
+  <EntityType Name="Polki_Rozmiary">
+    <Key>
+      <PropertyRef Name="ID_Rozmiar_Polki" />
+    </Key>
+    <Property Name="ID_Rozmiar_Polki" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Wysokosc" Type="Int32" />
+    <Property Name="Szerokosc" Type="Int32" />
+    <Property Name="Glebokosc" Type="Int32" />
+    <NavigationProperty Name="Polki" Relationship="Self.FK__Polki__ID_Rozmia__6B24EA82" FromRole="Polki_Rozmiary" ToRole="Polki" />
+  </EntityType>
+  <EntityType Name="Pracownicy">
+    <Key>
+      <PropertyRef Name="ID_Pracownika" />
+    </Key>
+    <Property Name="ID_Pracownika" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Imie" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Nazwisko" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Pesel" Type="String" MaxLength="11" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Adres" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Telefon" Type="String" MaxLength="15" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="Dokumentacje" Relationship="Self.FK__Dokumenta__ID_Pr__3493CFA7" FromRole="Pracownicy" ToRole="Dokumentacje" />
+    <NavigationProperty Name="Dostarczenia_Wewn" Relationship="Self.FK__Dostarcze__ID_Pr__1EA48E88" FromRole="Pracownicy" ToRole="Dostarczenia_Wewn" />
+    <NavigationProperty Name="Dostarczenia_Zewn" Relationship="Self.FK__Dostarcze__ID_Pr__245D67DE" FromRole="Pracownicy" ToRole="Dostarczenia_Zewn" />
+    <NavigationProperty Name="Obsluga_Techniczna" Relationship="Self.FK__Obsluga_T__ID_Pr__47A6A41B" FromRole="Pracownicy" ToRole="Obsluga_Techniczna" />
+    <NavigationProperty Name="Pracownicy_Zatrudnienie" Relationship="Self.FK__Pracownic__ID_Pr__48CFD27E" FromRole="Pracownicy" ToRole="Pracownicy_Zatrudnienie" />
+    <NavigationProperty Name="Proces_Technologiczny" Relationship="Self.FK__Proces_Te__ID_Pr__37703C52" FromRole="Pracownicy" ToRole="Proces_Technologiczny" />
+    <NavigationProperty Name="Przydzial_Zasobow" Relationship="Self.FK__Przydzial__ID_Pr__662B2B3B" FromRole="Pracownicy" ToRole="Przydzial_Zasobow" />
+    <NavigationProperty Name="Urlop" Relationship="Self.FK__Urlop__ID_Pracow__4222D4EF" FromRole="Pracownicy" ToRole="Urlop" />
+    <NavigationProperty Name="Zamowienia_Przydzial" Relationship="Self.FK__Zamowieni__ID_Pr__0C85DE4D" FromRole="Pracownicy" ToRole="Zamowienia_Przydzial" />
+    <NavigationProperty Name="Zamowienia" Relationship="Self.FK__Zamowieni__ID_Pr__5812160E" FromRole="Pracownicy" ToRole="Zamowienia" />
+    <NavigationProperty Name="Znajomosc_Jezykow" Relationship="Self.FK__Znajomosc__ID_Pr__5441852A" FromRole="Pracownicy" ToRole="Znajomosc_Jezykow" />
+  </EntityType>
+  <EntityType Name="Pracownicy_Zatrudnienie">
+    <Key>
+      <PropertyRef Name="ID_Pracownicy_Zatrudnienie" />
+    </Key>
+    <Property Name="ID_Pracownicy_Zatrudnienie" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ID_Pracownika" Type="Int32" />
+    <Property Name="ID_Stanowiska" Type="Int32" />
+    <Property Name="ID_Etatu" Type="Int32" />
+    <Property Name="ID_Rodzaju_Umowy" Type="Int32" />
+    <Property Name="ID_Dzialu" Type="Int32" />
+    <Property Name="Data_Zatrudnienia" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="Koniec_umowy" Type="DateTime" Nullable="false" Precision="0" />
+    <NavigationProperty Name="Dzialy" Relationship="Self.FK__Pracownic__ID_Dz__4CA06362" FromRole="Pracownicy_Zatrudnienie" ToRole="Dzialy" />
+    <NavigationProperty Name="Etat" Relationship="Self.FK__Pracownic__ID_Et__4AB81AF0" FromRole="Pracownicy_Zatrudnienie" ToRole="Etat" />
+    <NavigationProperty Name="Pracownicy" Relationship="Self.FK__Pracownic__ID_Pr__48CFD27E" FromRole="Pracownicy_Zatrudnienie" ToRole="Pracownicy" />
+    <NavigationProperty Name="Rodzaj_Umowy" Relationship="Self.FK__Pracownic__ID_Ro__4BAC3F29" FromRole="Pracownicy_Zatrudnienie" ToRole="Rodzaj_Umowy" />
+    <NavigationProperty Name="Stanowisko" Relationship="Self.FK__Pracownic__ID_St__49C3F6B7" FromRole="Pracownicy_Zatrudnienie" ToRole="Stanowisko" />
+  </EntityType>
+  <EntityType Name="Proces_Produkcyjny">
+    <Key>
+      <PropertyRef Name="ID_Procesu_Produkcyjnego" />
+    </Key>
+    <Property Name="ID_Procesu_Produkcyjnego" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ID_Zamowienie_Element" Type="Int32" Nullable="false" />
+    <Property Name="Proponowana_data_dostawy_materialu" Type="DateTime" Precision="0" />
+    <Property Name="ID_Dostarczenia" Type="Int32" />
+    <Property Name="Data_Rozpoczecia" Type="DateTime" Precision="0" />
+    <Property Name="Data_Zakonczenia" Type="DateTime" Precision="0" />
+    <Property Name="Uwagi" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Dostarczenia_Wewn" Relationship="Self.FK__Proces_Pr__ID_Do__5AB9788F" FromRole="Proces_Produkcyjny" ToRole="Dostarczenia_Wewn" />
+    <NavigationProperty Name="Kontrola_Efektywnosci" Relationship="Self.FK__Kontrola___ID_Pr__69FBBC1F" FromRole="Proces_Produkcyjny" ToRole="Kontrola_Efektywnosci" />
+    <NavigationProperty Name="Material_Na_Produkcji" Relationship="Self.FK__Material___ID_Pr__5D95E53A" FromRole="Proces_Produkcyjny" ToRole="Material_Na_Produkcji" />
+    <NavigationProperty Name="Zamowienie_Element" Relationship="Self.FK__Proces_Pr__ID_Za__59C55456" FromRole="Proces_Produkcyjny" ToRole="Zamowienie_Element" />
+    <NavigationProperty Name="Realizacja_Procesu" Relationship="Self.FK__Realizacj__ID_Pr__6166761E" FromRole="Proces_Produkcyjny" ToRole="Realizacja_Procesu" />
+  </EntityType>
+  <EntityType Name="Proces_Technologiczny">
+    <Key>
+      <PropertyRef Name="ID_Proces_Technologiczny" />
+    </Key>
+    <Property Name="ID_Proces_Technologiczny" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ID_Pracownika" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Dokumentacja_Proces" Relationship="Self.FK__Dokumenta__ID_Pr__3B40CD36" FromRole="Proces_Technologiczny" ToRole="Dokumentacja_Proces" />
+    <NavigationProperty Name="Elementy_Proces" Relationship="Self.FK__Elementy___ID_Pr__5224328E" FromRole="Proces_Technologiczny" ToRole="Elementy_Proces" />
+    <NavigationProperty Name="Etapy_W_Procesie" Relationship="Self.FK__Etapy_W_P__ID_Pr__55F4C372" FromRole="Proces_Technologiczny" ToRole="Etapy_W_Procesie" />
+    <NavigationProperty Name="Maszyny_Proces" Relationship="Self.FK__Maszyny_P__ID_Pr__3E1D39E1" FromRole="Proces_Technologiczny" ToRole="Maszyny_Proces" />
+    <NavigationProperty Name="Pracownicy" Relationship="Self.FK__Proces_Te__ID_Pr__37703C52" FromRole="Proces_Technologiczny" ToRole="Pracownicy" />
+    <NavigationProperty Name="Proces_Zamowienie" Relationship="Self.FK__Proces_Za__ID_Pr__4E53A1AA" FromRole="Proces_Technologiczny" ToRole="Proces_Zamowienie" />
+  </EntityType>
+  <EntityType Name="Proces_Zamowienie">
+    <Key>
+      <PropertyRef Name="ID_Proces_Zamowienie" />
+    </Key>
+    <Property Name="ID_Proces_Zamowienie" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ID_Proces_Technologiczny" Type="Int32" Nullable="false" />
+    <Property Name="ID_Zamowienie_Element" Type="Int32" Nullable="false" />
+    <Property Name="Kompletny_Proces" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="Proces_Technologiczny" Relationship="Self.FK__Proces_Za__ID_Pr__4E53A1AA" FromRole="Proces_Zamowienie" ToRole="Proces_Technologiczny" />
+    <NavigationProperty Name="Zamowienie_Element" Relationship="Self.FK__Proces_Za__ID_Za__4F47C5E3" FromRole="Proces_Zamowienie" ToRole="Zamowienie_Element" />
+  </EntityType>
+  <EntityType Name="Przydzial_Zasobow">
+    <Key>
+      <PropertyRef Name="ID_Przydzial_Zasobow" />
+    </Key>
+    <Property Name="ID_Przydzial_Zasobow" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ID_Realizacji_Procesu" Type="Int32" Nullable="false" />
+    <Property Name="ID_Pracownika" Type="Int32" Nullable="false" />
+    <Property Name="ID_Maszyny" Type="Int32" Nullable="false" />
+    <Property Name="Data_Rozpoczecia" Type="DateTime" Precision="0" />
+    <Property Name="Data_Zakonczenia" Type="DateTime" Precision="0" />
+    <NavigationProperty Name="Maszyny" Relationship="Self.FK__Przydzial__ID_Ma__671F4F74" FromRole="Przydzial_Zasobow" ToRole="Maszyny" />
+    <NavigationProperty Name="Pracownicy" Relationship="Self.FK__Przydzial__ID_Pr__662B2B3B" FromRole="Przydzial_Zasobow" ToRole="Pracownicy" />
+    <NavigationProperty Name="Realizacja_Procesu" Relationship="Self.FK__Przydzial__ID_Re__65370702" FromRole="Przydzial_Zasobow" ToRole="Realizacja_Procesu" />
+  </EntityType>
+  <EntityType Name="Realizacja_Procesu">
+    <Key>
+      <PropertyRef Name="ID_Realizacji_Procesu" />
+    </Key>
+    <Property Name="ID_Realizacji_Procesu" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ID_Procesu_Produkcyjnego" Type="Int32" Nullable="false" />
+    <Property Name="ID_Etapu" Type="Int32" Nullable="false" />
+    <Property Name="Data_Rozpoczecia_Procesu" Type="DateTime" Precision="0" />
+    <Property Name="Data_Zakonczenia_Procesu" Type="DateTime" Precision="0" />
+    <Property Name="Data_Kontroli" Type="DateTime" Precision="0" />
+    <Property Name="Uwagi_Kontroli" Type="String" MaxLength="300" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="Proces_Produkcyjny" Relationship="Self.FK__Realizacj__ID_Pr__6166761E" FromRole="Realizacja_Procesu" ToRole="Proces_Produkcyjny" />
+    <NavigationProperty Name="Przydzial_Zasobow" Relationship="Self.FK__Przydzial__ID_Re__65370702" FromRole="Realizacja_Procesu" ToRole="Przydzial_Zasobow" />
+    <NavigationProperty Name="Rodzaj_Etapu" Relationship="Self.FK__Realizacj__ID_Et__625A9A57" FromRole="Realizacja_Procesu" ToRole="Rodzaj_Etapu" />
+  </EntityType>
+  <EntityType Name="Regaly">
+    <Key>
+      <PropertyRef Name="ID_regal" />
+    </Key>
+    <Property Name="ID_regal" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Oznaczenie" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="Rodzaj_Dokumentacji">
+    <Key>
+      <PropertyRef Name="ID_Rodzaj_Dokumentacji" />
+    </Key>
+    <Property Name="ID_Rodzaj_Dokumentacji" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Nazwa" Type="String" MaxLength="25" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="Dokumentacje" Relationship="Self.FK__Dokumenta__ID_Ro__339FAB6E" FromRole="Rodzaj_Dokumentacji" ToRole="Dokumentacje" />
+  </EntityType>
+  <EntityType Name="Rodzaj_Etapu">
+    <Key>
+      <PropertyRef Name="ID_Etapu" />
+    </Key>
+    <Property Name="ID_Etapu" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Nazwa" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="Etapy_W_Procesie" Relationship="Self.FK__Etapy_W_P__ID_Et__56E8E7AB" FromRole="Rodzaj_Etapu" ToRole="Etapy_W_Procesie" />
+    <NavigationProperty Name="Realizacja_Procesu" Relationship="Self.FK__Realizacj__ID_Et__625A9A57" FromRole="Rodzaj_Etapu" ToRole="Realizacja_Procesu" />
+  </EntityType>
+  <EntityType Name="Rodzaj_Maszyny">
+    <Key>
+      <PropertyRef Name="ID_Rodzaj_Maszyny" />
+    </Key>
+    <Property Name="ID_Rodzaj_Maszyny" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Rodzaj_Maszyny1" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Koszt_Rbh" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Maszyny" Relationship="Self.FK__Maszyny__ID_Rodz__42E1EEFE" FromRole="Rodzaj_Maszyny" ToRole="Maszyny" />
+    <NavigationProperty Name="Maszyny_Proces" Relationship="Self.FK__Maszyny_P__ID_Ro__3F115E1A" FromRole="Rodzaj_Maszyny" ToRole="Maszyny_Proces" />
+  </EntityType>
+  <EntityType Name="Rodzaj_Obslugi">
+    <Key>
+      <PropertyRef Name="ID_Rodzaj_Obslugi" />
+    </Key>
+    <Property Name="ID_Rodzaj_Obslugi" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Nazwa" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="Obsluga_Techniczna" Relationship="Self.FK__Obsluga_T__ID_Ro__46B27FE2" FromRole="Rodzaj_Obslugi" ToRole="Obsluga_Techniczna" />
+  </EntityType>
+  <EntityType Name="Rodzaj_Umowy">
+    <Key>
+      <PropertyRef Name="ID_Rodzaj_Umowy" />
+    </Key>
+    <Property Name="ID_Rodzaj_Umowy" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Rodzaj_Umowy1" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Uwagi" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Pracownicy_Zatrudnienie" Relationship="Self.FK__Pracownic__ID_Ro__4BAC3F29" FromRole="Rodzaj_Umowy" ToRole="Pracownicy_Zatrudnienie" />
+  </EntityType>
+  <EntityType Name="Rodzaj_Urlopu">
+    <Key>
+      <PropertyRef Name="ID_Rodzaj_Urlopu" />
+    </Key>
+    <Property Name="ID_Rodzaj_Urlopu" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Nazwa" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="Urlop" Relationship="Self.FK__Urlop__ID_Rodzaj__44FF419A" FromRole="Rodzaj_Urlopu" ToRole="Urlop" />
+  </EntityType>
+  <EntityType Name="Srodki_Trwale">
+    <Key>
+      <PropertyRef Name="ID_Srodki_trwale" />
+    </Key>
+    <Property Name="ID_Srodki_trwale" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Nazwa" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Producent" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Numer_seryjny" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="ID_Dzialu" Type="Int32" />
+    <Property Name="Koszt_zakupu" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Roczny_stopien_amortyzacji" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Gwarancja" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="Zamortyzowane" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="Dzialy" Relationship="Self.FK__Srodki_Tr__ID_Dz__2E1BDC42" FromRole="Srodki_Trwale" ToRole="Dzialy" />
+    <NavigationProperty Name="Maszyny" Relationship="Self.FK__Maszyny__ID_Srod__41EDCAC5" FromRole="Srodki_Trwale" ToRole="Maszyny" />
+  </EntityType>
+  <EntityType Name="Stanowisko">
+    <Key>
+      <PropertyRef Name="ID_Stanowiska" />
+    </Key>
+    <Property Name="ID_Stanowiska" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Stanowisko1" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Opis" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="ID_Pensji" Type="Int32" />
+    <NavigationProperty Name="Pensja" Relationship="Self.FK__Stanowisk__ID_Pe__33D4B598" FromRole="Stanowisko" ToRole="Pensja" />
+    <NavigationProperty Name="Pracownicy_Zatrudnienie" Relationship="Self.FK__Pracownic__ID_St__49C3F6B7" FromRole="Stanowisko" ToRole="Pracownicy_Zatrudnienie" />
+  </EntityType>
+  <EntityType Name="Statusy">
+    <Key>
+      <PropertyRef Name="ID_statusu" />
+    </Key>
+    <Property Name="ID_statusu" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Status_zatw" Type="String" MaxLength="9" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Zamowienia_Dostawy" Relationship="Self.FK__Zamowieni__ID_st__114A936A" FromRole="Statusy" ToRole="Zamowienia_Dostawy" />
+  </EntityType>
+  <EntityType Name="Umowy_Kurierzy">
+    <Key>
+      <PropertyRef Name="ID_Umowy" />
+    </Key>
+    <Property Name="ID_Umowy" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ID_Kurier" Type="Int32" />
+    <Property Name="Data_Zawarcia" Type="DateTime" Precision="0" />
+    <Property Name="Czas_Dostawy" Type="Int32" />
+    <Property Name="Koszt_Km" Type="Int32" />
+    <Property Name="Koszt_Staly" Type="Int32" />
+    <NavigationProperty Name="Kurierzy" Relationship="Self.FK__Umowy_Kur__ID_Ku__03F0984C" FromRole="Umowy_Kurierzy" ToRole="Kurierzy" />
+    <NavigationProperty Name="Zamowienia_Przydzial" Relationship="Self.FK__Zamowieni__ID_Um__0D7A0286" FromRole="Umowy_Kurierzy" ToRole="Zamowienia_Przydzial" />
+  </EntityType>
+  <EntityType Name="Urlop">
+    <Key>
+      <PropertyRef Name="ID_Urlop" />
+    </Key>
+    <Property Name="ID_Urlop" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ID_Pracownika" Type="Int32" />
+    <Property Name="Data_rozpoczęcia" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="Data_zakonczenia" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="ID_Rodzaj_Urlopu" Type="Int32" />
+    <Property Name="ID_Wymiar_Urlopu" Type="Int32" />
+    <NavigationProperty Name="Pracownicy" Relationship="Self.FK__Urlop__ID_Pracow__4222D4EF" FromRole="Urlop" ToRole="Pracownicy" />
+    <NavigationProperty Name="Rodzaj_Urlopu" Relationship="Self.FK__Urlop__ID_Rodzaj__44FF419A" FromRole="Urlop" ToRole="Rodzaj_Urlopu" />
+    <NavigationProperty Name="Wymiar_Urlopu" Relationship="Self.FK__Urlop__ID_Wymiar__45F365D3" FromRole="Urlop" ToRole="Wymiar_Urlopu" />
+  </EntityType>
+  <EntityType Name="Wymiar_Urlopu">
+    <Key>
+      <PropertyRef Name="ID_Wymiar_Urlopu" />
+    </Key>
+    <Property Name="ID_Wymiar_Urlopu" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Ilość_dni" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="Urlop" Relationship="Self.FK__Urlop__ID_Wymiar__45F365D3" FromRole="Wymiar_Urlopu" ToRole="Urlop" />
+  </EntityType>
+  <EntityType Name="Zamowienia">
+    <Key>
+      <PropertyRef Name="ID_Zamowienia" />
+    </Key>
+    <Property Name="ID_Zamowienia" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ID_Klienta" Type="Int32" />
+    <Property Name="Data_Zlozenia" Type="DateTime" Precision="3" />
+    <Property Name="Data_Zakonczenia" Type="DateTime" Precision="3" />
+    <Property Name="Umowa" Type="Boolean" />
+    <Property Name="ID_Pracownika" Type="Int32" />
+    <NavigationProperty Name="Dostarczenia_Zewn" Relationship="Self.FK__Dostarcze__ID_Za__25518C17" FromRole="Zamowienia" ToRole="Dostarczenia_Zewn" />
+    <NavigationProperty Name="Klienci" Relationship="Self.FK__Zamowieni__ID_Kl__571DF1D5" FromRole="Zamowienia" ToRole="Klienci" />
+    <NavigationProperty Name="Pracownicy" Relationship="Self.FK__Zamowieni__ID_Pr__5812160E" FromRole="Zamowienia" ToRole="Pracownicy" />
+    <NavigationProperty Name="Zamowienia_Przydzial" Relationship="Self.FK__Zamowieni__ID_Za__0B91BA14" FromRole="Zamowienia" ToRole="Zamowienia_Przydzial" />
+    <NavigationProperty Name="Zamowienia_Dostawy" Relationship="Self.FK__Zamowieni__ID_Za__10566F31" FromRole="Zamowienia" ToRole="Zamowienia_Dostawy" />
+    <NavigationProperty Name="Zamowienie_Element" Relationship="Self.FK__Zamowieni__ID_Za__2A164134" FromRole="Zamowienia" ToRole="Zamowienie_Element" />
+  </EntityType>
+  <EntityType Name="Zamowienia_Dostawy">
+    <Key>
+      <PropertyRef Name="ID_Dostawy" />
+    </Key>
+    <Property Name="ID_Dostawy" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ID_Zamowienia" Type="Int32" />
+    <Property Name="Data_Dostawy_Planowana" Type="DateTime" Precision="0" />
+    <Property Name="Data_Dostawy_Rzeczywista" Type="DateTime" Precision="0" />
+    <Property Name="ID_statusu" Type="Int32" />
+    <NavigationProperty Name="Dostarczenia_Wewn" Relationship="Self.FK__Dostarcze__ID_Do__1F98B2C1" FromRole="Zamowienia_Dostawy" ToRole="Dostarczenia_Wewn" />
+    <NavigationProperty Name="Dostawy_Zawartosc" Relationship="Self.FK__Dostawy_Z__ID_Do__19DFD96B" FromRole="Zamowienia_Dostawy" ToRole="Dostawy_Zawartosc" />
+    <NavigationProperty Name="Statusy" Relationship="Self.FK__Zamowieni__ID_st__114A936A" FromRole="Zamowienia_Dostawy" ToRole="Statusy" />
+    <NavigationProperty Name="Zamowienia" Relationship="Self.FK__Zamowieni__ID_Za__10566F31" FromRole="Zamowienia_Dostawy" ToRole="Zamowienia" />
+    <NavigationProperty Name="Zawartosc" Relationship="Self.FK__Zawartosc__ID_Do__17036CC0" FromRole="Zamowienia_Dostawy" ToRole="Zawartosc" />
+  </EntityType>
+  <EntityType Name="Zamowienia_Przydzial">
+    <Key>
+      <PropertyRef Name="ID_Zamowienia_Przydzial" />
+    </Key>
+    <Property Name="ID_Zamowienia_Przydzial" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ID_Zamowienia" Type="Int32" />
+    <Property Name="ID_Pracownicy" Type="Int32" />
+    <Property Name="ID_Umowy" Type="Int32" />
+    <NavigationProperty Name="Pracownicy" Relationship="Self.FK__Zamowieni__ID_Pr__0C85DE4D" FromRole="Zamowienia_Przydzial" ToRole="Pracownicy" />
+    <NavigationProperty Name="Umowy_Kurierzy" Relationship="Self.FK__Zamowieni__ID_Um__0D7A0286" FromRole="Zamowienia_Przydzial" ToRole="Umowy_Kurierzy" />
+    <NavigationProperty Name="Zamowienia" Relationship="Self.FK__Zamowieni__ID_Za__0B91BA14" FromRole="Zamowienia_Przydzial" ToRole="Zamowienia" />
+  </EntityType>
+  <EntityType Name="Zamowienie_Element">
+    <Key>
+      <PropertyRef Name="ID_Zamowienie_Element" />
+    </Key>
+    <Property Name="ID_Zamowienie_Element" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ID_Zamowienia" Type="Int32" />
+    <Property Name="ID_Element" Type="Int32" />
+    <Property Name="Ilosc" Type="Int32" Nullable="false" />
+    <Property Name="Licz_do_zamowienia" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="Elementy" Relationship="Self.FK__Zamowieni__ID_El__2B0A656D" FromRole="Zamowienie_Element" ToRole="Elementy" />
+    <NavigationProperty Name="Proces_Produkcyjny" Relationship="Self.FK__Proces_Pr__ID_Za__59C55456" FromRole="Zamowienie_Element" ToRole="Proces_Produkcyjny" />
+    <NavigationProperty Name="Proces_Zamowienie" Relationship="Self.FK__Proces_Za__ID_Za__4F47C5E3" FromRole="Zamowienie_Element" ToRole="Proces_Zamowienie" />
+    <NavigationProperty Name="Zamowienia" Relationship="Self.FK__Zamowieni__ID_Za__2A164134" FromRole="Zamowienie_Element" ToRole="Zamowienia" />
+  </EntityType>
+  <EntityType Name="Zawartosc">
+    <Key>
+      <PropertyRef Name="ID_Zawartosc" />
+    </Key>
+    <Property Name="ID_Zawartosc" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ID_Polka" Type="Int32" />
+    <Property Name="ID_Element" Type="Int32" />
+    <Property Name="ID_Dostawy" Type="Int32" />
+    <Property Name="Ilosc_Paczek" Type="Int32" />
+    <NavigationProperty Name="Elementy" Relationship="Self.FK__Zawartosc__ID_El__160F4887" FromRole="Zawartosc" ToRole="Elementy" />
+    <NavigationProperty Name="Polki" Relationship="Self.FK__Zawartosc__ID_Po__151B244E" FromRole="Zawartosc" ToRole="Polki" />
+    <NavigationProperty Name="Zamowienia_Dostawy" Relationship="Self.FK__Zawartosc__ID_Do__17036CC0" FromRole="Zawartosc" ToRole="Zamowienia_Dostawy" />
+  </EntityType>
+  <EntityType Name="Znajomosc_Jezykow">
+    <Key>
+      <PropertyRef Name="ID_Znajomosc_Jezykow" />
+    </Key>
+    <Property Name="ID_Znajomosc_Jezykow" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ID_Jezyka" Type="Int32" />
+    <Property Name="ID_Pracownika" Type="Int32" />
+    <NavigationProperty Name="Jezyk" Relationship="Self.FK__Znajomosc__ID_Je__534D60F1" FromRole="Znajomosc_Jezykow" ToRole="Jezyk" />
+    <NavigationProperty Name="Pracownicy" Relationship="Self.FK__Znajomosc__ID_Pr__5441852A" FromRole="Znajomosc_Jezykow" ToRole="Pracownicy" />
+  </EntityType>
+  <EntityType Name="vCechyElementu">
+    <Key>
+      <PropertyRef Name="ID_Element" />
+    </Key>
+    <Property Name="ID_Element" Type="Int32" Nullable="false" />
+    <Property Name="Cecha" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="Wartosc_Cechy_Liczbowa" Type="Single" />
+    <Property Name="Jednostka" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="Wartosc_Cechy_Slowna" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="vMaszyny_rodzaj_liczba">
+    <Key>
+      <PropertyRef Name="ID_Proces_Technologiczny" />
+      <PropertyRef Name="Rodzaj_Maszyny" />
+      <PropertyRef Name="Producent" />
+      <PropertyRef Name="Liczba_Maszyn" />
+    </Key>
+    <Property Name="ID_Proces_Technologiczny" Type="Int32" Nullable="false" />
+    <Property Name="Rodzaj_Maszyny" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Producent" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Liczba_Maszyn" Type="Int32" Nullable="false" />
+  </EntityType>
+  <EntityType Name="vMaszyny_serwis">
+    <Key>
+      <PropertyRef Name="ID_Maszyny" />
+      <PropertyRef Name="Producent" />
+      <PropertyRef Name="Nazwa" />
+      <PropertyRef Name="Resurs_Rbh" />
+      <PropertyRef Name="Serwis_Co_Ile" />
+      <PropertyRef Name="Numer_seryjny" />
+    </Key>
+    <Property Name="ID_Maszyny" Type="Int32" Nullable="false" />
+    <Property Name="Producent" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Nazwa" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Resurs_Rbh" Type="Int32" Nullable="false" />
+    <Property Name="Serwis_Co_Ile" Type="Int32" Nullable="false" />
+    <Property Name="Numer_seryjny" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+  </EntityType>
+  <EntityType Name="vObsluga">
+    <Key>
+      <PropertyRef Name="ID_Obsluga_Techniczna" />
+      <PropertyRef Name="Nazwa" />
+      <PropertyRef Name="Producent" />
+      <PropertyRef Name="Numer_seryjny" />
+      <PropertyRef Name="Expr1" />
+      <PropertyRef Name="Data_Wykonania" />
+      <PropertyRef Name="Nazwisko" />
+    </Key>
+    <Property Name="ID_Obsluga_Techniczna" Type="Int32" Nullable="false" />
+    <Property Name="Nazwa" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Producent" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Numer_seryjny" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Expr1" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Data_Wykonania" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="Nazwisko" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Element_Nazwa" Type="String" MaxLength="35" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="vPolki_na_regalach">
+    <Key>
+      <PropertyRef Name="ID_Polka" />
+    </Key>
+    <Property Name="Oznaczenie" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="ID_Polka" Type="Int32" Nullable="false" />
+    <Property Name="Wysokosc" Type="Int32" />
+    <Property Name="Szerokosc" Type="Int32" />
+    <Property Name="Glebokosc" Type="Int32" />
+  </EntityType>
+  <EntityType Name="vRealizacjaProcesuProdukcyjnegoDetails">
+    <Key>
+      <PropertyRef Name="ID_Procesu_Produkcyjnego" />
+      <PropertyRef Name="ID_Realizacji_Procesu" />
+      <PropertyRef Name="Nazwa_etapu" />
+    </Key>
+    <Property Name="ID_Procesu_Produkcyjnego" Type="Int32" Nullable="false" />
+    <Property Name="ID_Realizacji_Procesu" Type="Int32" Nullable="false" />
+    <Property Name="Nazwa_etapu" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Data_Rozpoczecia_Procesu" Type="DateTime" Precision="0" />
+    <Property Name="Data_Zakonczenia_Procesu" Type="DateTime" Precision="0" />
+  </EntityType>
+  <EntityType Name="vSrednia_ilosc_maszyn">
+    <Key>
+      <PropertyRef Name="Rodzaj_Maszyny" />
+    </Key>
+    <Property Name="Rodzaj_Maszyny" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="srednia_ilosc_maszyn" Type="Int32" />
+  </EntityType>
+  <EntityType Name="vSuma_czasu_procesu">
+    <Key>
+      <PropertyRef Name="ID_Proces_Technologiczny" />
+    </Key>
+    <Property Name="ID_Proces_Technologiczny" Type="Int32" Nullable="false" />
+    <Property Name="suma_czasu" Type="Int32" />
+  </EntityType>
+  <EntityType Name="vZawartosc_polki">
+    <Key>
+      <PropertyRef Name="ID_Regal" />
+    </Key>
+    <Property Name="ID_Regal" Type="Int32" Nullable="false" />
+    <Property Name="Oznaczenie" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="ID_Polka" Type="Int32" />
+    <Property Name="Element_Nazwa" Type="String" MaxLength="35" FixedLength="false" Unicode="false" />
+    <Property Name="Ilosc_Paczek" Type="Int32" />
+    <Property Name="Ilosc_W_Opakowaniu_Pojedynczym" Type="Single" />
+    <Property Name="Jednostka" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="Ile_sztuk" Type="Single" />
+  </EntityType>
+  <Association Name="FK__Czesci_Ob__ID_El__4B7734FF">
+    <End Role="Elementy" Type="Self.Elementy" Multiplicity="1" />
+    <End Role="Czesci_Obsluga" Type="Self.Czesci_Obsluga" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Elementy">
+        <PropertyRef Name="ID_Element" />
+      </Principal>
+      <Dependent Role="Czesci_Obsluga">
+        <PropertyRef Name="ID_Element" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Czesci_Ob__ID_Ob__4A8310C6">
+    <End Role="Obsluga_Techniczna" Type="Self.Obsluga_Techniczna" Multiplicity="1" />
+    <End Role="Czesci_Obsluga" Type="Self.Czesci_Obsluga" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Obsluga_Techniczna">
+        <PropertyRef Name="ID_Obsluga_Techniczna" />
+      </Principal>
+      <Dependent Role="Czesci_Obsluga">
+        <PropertyRef Name="ID_Obsluga_Techniczna" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Dokumenta__ID_Do__3A4CA8FD">
+    <End Role="Dokumentacje" Type="Self.Dokumentacje" Multiplicity="1" />
+    <End Role="Dokumentacja_Proces" Type="Self.Dokumentacja_Proces" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Dokumentacje">
+        <PropertyRef Name="ID_Dokumentacji" />
+      </Principal>
+      <Dependent Role="Dokumentacja_Proces">
+        <PropertyRef Name="ID_Dokumentacji" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Dokumenta__ID_Pr__3B40CD36">
+    <End Role="Proces_Technologiczny" Type="Self.Proces_Technologiczny" Multiplicity="1" />
+    <End Role="Dokumentacja_Proces" Type="Self.Dokumentacja_Proces" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Proces_Technologiczny">
+        <PropertyRef Name="ID_Proces_Technologiczny" />
+      </Principal>
+      <Dependent Role="Dokumentacja_Proces">
+        <PropertyRef Name="ID_Proces_Technologiczny" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Dokumenta__ID_Pr__3493CFA7">
+    <End Role="Pracownicy" Type="Self.Pracownicy" Multiplicity="1" />
+    <End Role="Dokumentacje" Type="Self.Dokumentacje" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Pracownicy">
+        <PropertyRef Name="ID_Pracownika" />
+      </Principal>
+      <Dependent Role="Dokumentacje">
+        <PropertyRef Name="ID_Pracownika" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Dokumenta__ID_Ro__339FAB6E">
+    <End Role="Rodzaj_Dokumentacji" Type="Self.Rodzaj_Dokumentacji" Multiplicity="1" />
+    <End Role="Dokumentacje" Type="Self.Dokumentacje" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Rodzaj_Dokumentacji">
+        <PropertyRef Name="ID_Rodzaj_Dokumentacji" />
+      </Principal>
+      <Dependent Role="Dokumentacje">
+        <PropertyRef Name="ID_Rodzaj_Dokumentacji" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Dostarcze__ID_Do__1F98B2C1">
+    <End Role="Zamowienia_Dostawy" Type="Self.Zamowienia_Dostawy" Multiplicity="0..1" />
+    <End Role="Dostarczenia_Wewn" Type="Self.Dostarczenia_Wewn" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Zamowienia_Dostawy">
+        <PropertyRef Name="ID_Dostawy" />
+      </Principal>
+      <Dependent Role="Dostarczenia_Wewn">
+        <PropertyRef Name="ID_Dostawy" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Dostarcze__ID_el__208CD6FA">
+    <End Role="Elementy" Type="Self.Elementy" Multiplicity="0..1" />
+    <End Role="Dostarczenia_Wewn" Type="Self.Dostarczenia_Wewn" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Elementy">
+        <PropertyRef Name="ID_Element" />
+      </Principal>
+      <Dependent Role="Dostarczenia_Wewn">
+        <PropertyRef Name="ID_element" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Dostarcze__ID_Mi__2180FB33">
+    <End Role="Miejsca" Type="Self.Miejsca" Multiplicity="0..1" />
+    <End Role="Dostarczenia_Wewn" Type="Self.Dostarczenia_Wewn" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Miejsca">
+        <PropertyRef Name="ID_Miejsca" />
+      </Principal>
+      <Dependent Role="Dostarczenia_Wewn">
+        <PropertyRef Name="ID_Miejsca" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Dostarcze__ID_Pr__1EA48E88">
+    <End Role="Pracownicy" Type="Self.Pracownicy" Multiplicity="0..1" />
+    <End Role="Dostarczenia_Wewn" Type="Self.Dostarczenia_Wewn" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Pracownicy">
+        <PropertyRef Name="ID_Pracownika" />
+      </Principal>
+      <Dependent Role="Dostarczenia_Wewn">
+        <PropertyRef Name="ID_Pracownicy" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Proces_Pr__ID_Do__5AB9788F">
+    <End Role="Dostarczenia_Wewn" Type="Self.Dostarczenia_Wewn" Multiplicity="0..1" />
+    <End Role="Proces_Produkcyjny" Type="Self.Proces_Produkcyjny" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Dostarczenia_Wewn">
+        <PropertyRef Name="ID_Dostarczenia" />
+      </Principal>
+      <Dependent Role="Proces_Produkcyjny">
+        <PropertyRef Name="ID_Dostarczenia" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Dostarcze__ID_el__2645B050">
+    <End Role="Elementy" Type="Self.Elementy" Multiplicity="0..1" />
+    <End Role="Dostarczenia_Zewn" Type="Self.Dostarczenia_Zewn" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Elementy">
+        <PropertyRef Name="ID_Element" />
+      </Principal>
+      <Dependent Role="Dostarczenia_Zewn">
+        <PropertyRef Name="ID_element" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Dostarcze__ID_Mi__2739D489">
+    <End Role="Miejsca" Type="Self.Miejsca" Multiplicity="0..1" />
+    <End Role="Dostarczenia_Zewn" Type="Self.Dostarczenia_Zewn" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Miejsca">
+        <PropertyRef Name="ID_Miejsca" />
+      </Principal>
+      <Dependent Role="Dostarczenia_Zewn">
+        <PropertyRef Name="ID_Miejsca" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Dostarcze__ID_Pr__245D67DE">
+    <End Role="Pracownicy" Type="Self.Pracownicy" Multiplicity="0..1" />
+    <End Role="Dostarczenia_Zewn" Type="Self.Dostarczenia_Zewn" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Pracownicy">
+        <PropertyRef Name="ID_Pracownika" />
+      </Principal>
+      <Dependent Role="Dostarczenia_Zewn">
+        <PropertyRef Name="ID_Pracownicy" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Dostarcze__ID_Za__25518C17">
+    <End Role="Zamowienia" Type="Self.Zamowienia" Multiplicity="0..1" />
+    <End Role="Dostarczenia_Zewn" Type="Self.Dostarczenia_Zewn" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Zamowienia">
+        <PropertyRef Name="ID_Zamowienia" />
+      </Principal>
+      <Dependent Role="Dostarczenia_Zewn">
+        <PropertyRef Name="ID_Zamowienia" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Oferta__ID_Dosta__07C12930">
+    <End Role="Dostawcy_Zaopatrzenie" Type="Self.Dostawcy_Zaopatrzenie" Multiplicity="0..1" />
+    <End Role="Oferta" Type="Self.Oferta" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Dostawcy_Zaopatrzenie">
+        <PropertyRef Name="ID_Dostawcy" />
+      </Principal>
+      <Dependent Role="Oferta">
+        <PropertyRef Name="ID_Dostawcy" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Dostawy_Z__ID_Do__19DFD96B">
+    <End Role="Zamowienia_Dostawy" Type="Self.Zamowienia_Dostawy" Multiplicity="0..1" />
+    <End Role="Dostawy_Zawartosc" Type="Self.Dostawy_Zawartosc" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Zamowienia_Dostawy">
+        <PropertyRef Name="ID_Dostawy" />
+      </Principal>
+      <Dependent Role="Dostawy_Zawartosc">
+        <PropertyRef Name="ID_Dostawy" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Dostawy_Z__ID_El__1AD3FDA4">
+    <End Role="Elementy" Type="Self.Elementy" Multiplicity="0..1" />
+    <End Role="Dostawy_Zawartosc" Type="Self.Dostawy_Zawartosc" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Elementy">
+        <PropertyRef Name="ID_Element" />
+      </Principal>
+      <Dependent Role="Dostawy_Zawartosc">
+        <PropertyRef Name="ID_Element" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Dostawy_Z__ID_of__1BC821DD">
+    <End Role="Oferta" Type="Self.Oferta" Multiplicity="0..1" />
+    <End Role="Dostawy_Zawartosc" Type="Self.Dostawy_Zawartosc" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Oferta">
+        <PropertyRef Name="ID_Oferta" />
+      </Principal>
+      <Dependent Role="Dostawy_Zawartosc">
+        <PropertyRef Name="ID_oferta" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Pracownic__ID_Dz__4CA06362">
+    <End Role="Dzialy" Type="Self.Dzialy" Multiplicity="0..1" />
+    <End Role="Pracownicy_Zatrudnienie" Type="Self.Pracownicy_Zatrudnienie" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Dzialy">
+        <PropertyRef Name="ID_Dzialu" />
+      </Principal>
+      <Dependent Role="Pracownicy_Zatrudnienie">
+        <PropertyRef Name="ID_Dzialu" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Srodki_Tr__ID_Dz__2E1BDC42">
+    <End Role="Dzialy" Type="Self.Dzialy" Multiplicity="0..1" />
+    <End Role="Srodki_Trwale" Type="Self.Srodki_Trwale" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Dzialy">
+        <PropertyRef Name="ID_Dzialu" />
+      </Principal>
+      <Dependent Role="Srodki_Trwale">
+        <PropertyRef Name="ID_Dzialu" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Elementy___ID_El__531856C7">
+    <End Role="Elementy" Type="Self.Elementy" Multiplicity="1" />
+    <End Role="Elementy_Proces" Type="Self.Elementy_Proces" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Elementy">
+        <PropertyRef Name="ID_Element" />
+      </Principal>
+      <Dependent Role="Elementy_Proces">
+        <PropertyRef Name="ID_Element" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Elementy___ID_El__7F2BE32F">
+    <End Role="Elementy" Type="Self.Elementy" Multiplicity="0..1" />
+    <End Role="Elementy_Cechy" Type="Self.Elementy_Cechy" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Elementy">
+        <PropertyRef Name="ID_Element" />
+      </Principal>
+      <Dependent Role="Elementy_Cechy">
+        <PropertyRef Name="ID_Element" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Elementy__ID_Ele__7C4F7684">
+    <End Role="Elementy_Typy" Type="Self.Elementy_Typy" Multiplicity="0..1" />
+    <End Role="Elementy" Type="Self.Elementy" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Elementy_Typy">
+        <PropertyRef Name="ID_Element_Typ" />
+      </Principal>
+      <Dependent Role="Elementy">
+        <PropertyRef Name="ID_Element_Typ" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Oferta__ID_Eleme__06CD04F7">
+    <End Role="Elementy" Type="Self.Elementy" Multiplicity="0..1" />
+    <End Role="Oferta" Type="Self.Oferta" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Elementy">
+        <PropertyRef Name="ID_Element" />
+      </Principal>
+      <Dependent Role="Oferta">
+        <PropertyRef Name="ID_Element" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Zamowieni__ID_El__2B0A656D">
+    <End Role="Elementy" Type="Self.Elementy" Multiplicity="0..1" />
+    <End Role="Zamowienie_Element" Type="Self.Zamowienie_Element" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Elementy">
+        <PropertyRef Name="ID_Element" />
+      </Principal>
+      <Dependent Role="Zamowienie_Element">
+        <PropertyRef Name="ID_Element" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Zawartosc__ID_El__160F4887">
+    <End Role="Elementy" Type="Self.Elementy" Multiplicity="0..1" />
+    <End Role="Zawartosc" Type="Self.Zawartosc" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Elementy">
+        <PropertyRef Name="ID_Element" />
+      </Principal>
+      <Dependent Role="Zawartosc">
+        <PropertyRef Name="ID_Element" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Elementy___ID_Ce__00200768">
+    <End Role="Elementy_Cechy_Slownik" Type="Self.Elementy_Cechy_Slownik" Multiplicity="0..1" />
+    <End Role="Elementy_Cechy" Type="Self.Elementy_Cechy" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Elementy_Cechy_Slownik">
+        <PropertyRef Name="ID_Cecha" />
+      </Principal>
+      <Dependent Role="Elementy_Cechy">
+        <PropertyRef Name="ID_Cecha" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Elementy___ID_Je__01142BA1">
+    <End Role="Elementy_Jednostki" Type="Self.Elementy_Jednostki" Multiplicity="0..1" />
+    <End Role="Elementy_Cechy" Type="Self.Elementy_Cechy" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Elementy_Jednostki">
+        <PropertyRef Name="ID_jednostka" />
+      </Principal>
+      <Dependent Role="Elementy_Cechy">
+        <PropertyRef Name="ID_Jednostka" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Oferta__ID_Jedno__08B54D69">
+    <End Role="Elementy_Jednostki" Type="Self.Elementy_Jednostki" Multiplicity="0..1" />
+    <End Role="Oferta" Type="Self.Oferta" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Elementy_Jednostki">
+        <PropertyRef Name="ID_jednostka" />
+      </Principal>
+      <Dependent Role="Oferta">
+        <PropertyRef Name="ID_Jednostka" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Elementy___ID_Pr__5224328E">
+    <End Role="Proces_Technologiczny" Type="Self.Proces_Technologiczny" Multiplicity="1" />
+    <End Role="Elementy_Proces" Type="Self.Elementy_Proces" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Proces_Technologiczny">
+        <PropertyRef Name="ID_Proces_Technologiczny" />
+      </Principal>
+      <Dependent Role="Elementy_Proces">
+        <PropertyRef Name="ID_Proces_Technologiczny" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Material___ID_El__5E8A0973">
+    <End Role="Elementy_Proces" Type="Self.Elementy_Proces" Multiplicity="1" />
+    <End Role="Material_Na_Produkcji" Type="Self.Material_Na_Produkcji" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Elementy_Proces">
+        <PropertyRef Name="ID_Elementy_Proces" />
+      </Principal>
+      <Dependent Role="Material_Na_Produkcji">
+        <PropertyRef Name="ID_Elementy_Proces" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Etapy_W_P__ID_Et__56E8E7AB">
+    <End Role="Rodzaj_Etapu" Type="Self.Rodzaj_Etapu" Multiplicity="1" />
+    <End Role="Etapy_W_Procesie" Type="Self.Etapy_W_Procesie" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Rodzaj_Etapu">
+        <PropertyRef Name="ID_Etapu" />
+      </Principal>
+      <Dependent Role="Etapy_W_Procesie">
+        <PropertyRef Name="ID_Etapu" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Etapy_W_P__ID_Pr__55F4C372">
+    <End Role="Proces_Technologiczny" Type="Self.Proces_Technologiczny" Multiplicity="1" />
+    <End Role="Etapy_W_Procesie" Type="Self.Etapy_W_Procesie" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Proces_Technologiczny">
+        <PropertyRef Name="ID_Proces_Technologiczny" />
+      </Principal>
+      <Dependent Role="Etapy_W_Procesie">
+        <PropertyRef Name="ID_Proces_Technologiczny" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Pracownic__ID_Et__4AB81AF0">
+    <End Role="Etat" Type="Self.Etat" Multiplicity="0..1" />
+    <End Role="Pracownicy_Zatrudnienie" Type="Self.Pracownicy_Zatrudnienie" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Etat">
+        <PropertyRef Name="ID_Etat" />
+      </Principal>
+      <Dependent Role="Pracownicy_Zatrudnienie">
+        <PropertyRef Name="ID_Etatu" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Faktury_Z__ID_Gr__5DCAEF64">
+    <End Role="Grupa" Type="Self.Grupa" Multiplicity="0..1" />
+    <End Role="Faktury_Zewnetrzne" Type="Self.Faktury_Zewnetrzne" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Grupa">
+        <PropertyRef Name="ID_Grupa" />
+      </Principal>
+      <Dependent Role="Faktury_Zewnetrzne">
+        <PropertyRef Name="ID_Grupa" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Znajomosc__ID_Je__534D60F1">
+    <End Role="Jezyk" Type="Self.Jezyk" Multiplicity="0..1" />
+    <End Role="Znajomosc_Jezykow" Type="Self.Znajomosc_Jezykow" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Jezyk">
+        <PropertyRef Name="ID_Jezyk" />
+      </Principal>
+      <Dependent Role="Znajomosc_Jezykow">
+        <PropertyRef Name="ID_Jezyka" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Zamowieni__ID_Kl__571DF1D5">
+    <End Role="Klienci" Type="Self.Klienci" Multiplicity="0..1" />
+    <End Role="Zamowienia" Type="Self.Zamowienia" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Klienci">
+        <PropertyRef Name="ID_Klienta" />
+      </Principal>
+      <Dependent Role="Zamowienia">
+        <PropertyRef Name="ID_Klienta" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Kontrola___ID_Pr__69FBBC1F">
+    <End Role="Proces_Produkcyjny" Type="Self.Proces_Produkcyjny" Multiplicity="1" />
+    <End Role="Kontrola_Efektywnosci" Type="Self.Kontrola_Efektywnosci" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Proces_Produkcyjny">
+        <PropertyRef Name="ID_Procesu_Produkcyjnego" />
+      </Principal>
+      <Dependent Role="Kontrola_Efektywnosci">
+        <PropertyRef Name="ID_Procesu_Produkcyjnego" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Umowy_Kur__ID_Ku__03F0984C">
+    <End Role="Kurierzy" Type="Self.Kurierzy" Multiplicity="0..1" />
+    <End Role="Umowy_Kurierzy" Type="Self.Umowy_Kurierzy" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Kurierzy">
+        <PropertyRef Name="ID_Kurier" />
+      </Principal>
+      <Dependent Role="Umowy_Kurierzy">
+        <PropertyRef Name="ID_Kurier" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Maszyny__ID_Rodz__42E1EEFE">
+    <End Role="Rodzaj_Maszyny" Type="Self.Rodzaj_Maszyny" Multiplicity="1" />
+    <End Role="Maszyny" Type="Self.Maszyny" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Rodzaj_Maszyny">
+        <PropertyRef Name="ID_Rodzaj_Maszyny" />
+      </Principal>
+      <Dependent Role="Maszyny">
+        <PropertyRef Name="ID_Rodzaj_Maszyny" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Maszyny__ID_Srod__41EDCAC5">
+    <End Role="Srodki_Trwale" Type="Self.Srodki_Trwale" Multiplicity="1" />
+    <End Role="Maszyny" Type="Self.Maszyny" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Srodki_Trwale">
+        <PropertyRef Name="ID_Srodki_trwale" />
+      </Principal>
+      <Dependent Role="Maszyny">
+        <PropertyRef Name="ID_Srodki_Trwale" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Obsluga_T__ID_Ma__45BE5BA9">
+    <End Role="Maszyny" Type="Self.Maszyny" Multiplicity="1" />
+    <End Role="Obsluga_Techniczna" Type="Self.Obsluga_Techniczna" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Maszyny">
+        <PropertyRef Name="ID_Maszyny" />
+      </Principal>
+      <Dependent Role="Obsluga_Techniczna">
+        <PropertyRef Name="ID_Maszyny" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Przydzial__ID_Ma__671F4F74">
+    <End Role="Maszyny" Type="Self.Maszyny" Multiplicity="1" />
+    <End Role="Przydzial_Zasobow" Type="Self.Przydzial_Zasobow" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Maszyny">
+        <PropertyRef Name="ID_Maszyny" />
+      </Principal>
+      <Dependent Role="Przydzial_Zasobow">
+        <PropertyRef Name="ID_Maszyny" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Maszyny_P__ID_Pr__3E1D39E1">
+    <End Role="Proces_Technologiczny" Type="Self.Proces_Technologiczny" Multiplicity="1" />
+    <End Role="Maszyny_Proces" Type="Self.Maszyny_Proces" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Proces_Technologiczny">
+        <PropertyRef Name="ID_Proces_Technologiczny" />
+      </Principal>
+      <Dependent Role="Maszyny_Proces">
+        <PropertyRef Name="ID_Proces_Technologiczny" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Maszyny_P__ID_Ro__3F115E1A">
+    <End Role="Rodzaj_Maszyny" Type="Self.Rodzaj_Maszyny" Multiplicity="1" />
+    <End Role="Maszyny_Proces" Type="Self.Maszyny_Proces" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Rodzaj_Maszyny">
+        <PropertyRef Name="ID_Rodzaj_Maszyny" />
+      </Principal>
+      <Dependent Role="Maszyny_Proces">
+        <PropertyRef Name="ID_Rodzaj_Maszyny" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Material___ID_Pr__5D95E53A">
+    <End Role="Proces_Produkcyjny" Type="Self.Proces_Produkcyjny" Multiplicity="1" />
+    <End Role="Material_Na_Produkcji" Type="Self.Material_Na_Produkcji" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Proces_Produkcyjny">
+        <PropertyRef Name="ID_Procesu_Produkcyjnego" />
+      </Principal>
+      <Dependent Role="Material_Na_Produkcji">
+        <PropertyRef Name="ID_Procesu_Produkcyjnego" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Obsluga_T__ID_Pr__47A6A41B">
+    <End Role="Pracownicy" Type="Self.Pracownicy" Multiplicity="1" />
+    <End Role="Obsluga_Techniczna" Type="Self.Obsluga_Techniczna" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Pracownicy">
+        <PropertyRef Name="ID_Pracownika" />
+      </Principal>
+      <Dependent Role="Obsluga_Techniczna">
+        <PropertyRef Name="ID_Pracownika" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Obsluga_T__ID_Ro__46B27FE2">
+    <End Role="Rodzaj_Obslugi" Type="Self.Rodzaj_Obslugi" Multiplicity="1" />
+    <End Role="Obsluga_Techniczna" Type="Self.Obsluga_Techniczna" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Rodzaj_Obslugi">
+        <PropertyRef Name="ID_Rodzaj_Obslugi" />
+      </Principal>
+      <Dependent Role="Obsluga_Techniczna">
+        <PropertyRef Name="ID_Rodzaj_Obslugi" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Stanowisk__ID_Pe__33D4B598">
+    <End Role="Pensja" Type="Self.Pensja" Multiplicity="0..1" />
+    <End Role="Stanowisko" Type="Self.Stanowisko" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Pensja">
+        <PropertyRef Name="ID_Pensja" />
+      </Principal>
+      <Dependent Role="Stanowisko">
+        <PropertyRef Name="ID_Pensji" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Polki__ID_Rozmia__6B24EA82">
+    <End Role="Polki_Rozmiary" Type="Self.Polki_Rozmiary" Multiplicity="0..1" />
+    <End Role="Polki" Type="Self.Polki" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Polki_Rozmiary">
+        <PropertyRef Name="ID_Rozmiar_Polki" />
+      </Principal>
+      <Dependent Role="Polki">
+        <PropertyRef Name="ID_Rozmiar_Polki" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Zawartosc__ID_Po__151B244E">
+    <End Role="Polki" Type="Self.Polki" Multiplicity="0..1" />
+    <End Role="Zawartosc" Type="Self.Zawartosc" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Polki">
+        <PropertyRef Name="ID_Polka" />
+      </Principal>
+      <Dependent Role="Zawartosc">
+        <PropertyRef Name="ID_Polka" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Pracownic__ID_Pr__48CFD27E">
+    <End Role="Pracownicy" Type="Self.Pracownicy" Multiplicity="0..1" />
+    <End Role="Pracownicy_Zatrudnienie" Type="Self.Pracownicy_Zatrudnienie" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Pracownicy">
+        <PropertyRef Name="ID_Pracownika" />
+      </Principal>
+      <Dependent Role="Pracownicy_Zatrudnienie">
+        <PropertyRef Name="ID_Pracownika" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Proces_Te__ID_Pr__37703C52">
+    <End Role="Pracownicy" Type="Self.Pracownicy" Multiplicity="1" />
+    <End Role="Proces_Technologiczny" Type="Self.Proces_Technologiczny" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Pracownicy">
+        <PropertyRef Name="ID_Pracownika" />
+      </Principal>
+      <Dependent Role="Proces_Technologiczny">
+        <PropertyRef Name="ID_Pracownika" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Przydzial__ID_Pr__662B2B3B">
+    <End Role="Pracownicy" Type="Self.Pracownicy" Multiplicity="1" />
+    <End Role="Przydzial_Zasobow" Type="Self.Przydzial_Zasobow" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Pracownicy">
+        <PropertyRef Name="ID_Pracownika" />
+      </Principal>
+      <Dependent Role="Przydzial_Zasobow">
+        <PropertyRef Name="ID_Pracownika" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Urlop__ID_Pracow__4222D4EF">
+    <End Role="Pracownicy" Type="Self.Pracownicy" Multiplicity="0..1" />
+    <End Role="Urlop" Type="Self.Urlop" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Pracownicy">
+        <PropertyRef Name="ID_Pracownika" />
+      </Principal>
+      <Dependent Role="Urlop">
+        <PropertyRef Name="ID_Pracownika" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Zamowieni__ID_Pr__0C85DE4D">
+    <End Role="Pracownicy" Type="Self.Pracownicy" Multiplicity="0..1" />
+    <End Role="Zamowienia_Przydzial" Type="Self.Zamowienia_Przydzial" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Pracownicy">
+        <PropertyRef Name="ID_Pracownika" />
+      </Principal>
+      <Dependent Role="Zamowienia_Przydzial">
+        <PropertyRef Name="ID_Pracownicy" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Zamowieni__ID_Pr__5812160E">
+    <End Role="Pracownicy" Type="Self.Pracownicy" Multiplicity="0..1" />
+    <End Role="Zamowienia" Type="Self.Zamowienia" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Pracownicy">
+        <PropertyRef Name="ID_Pracownika" />
+      </Principal>
+      <Dependent Role="Zamowienia">
+        <PropertyRef Name="ID_Pracownika" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Znajomosc__ID_Pr__5441852A">
+    <End Role="Pracownicy" Type="Self.Pracownicy" Multiplicity="0..1" />
+    <End Role="Znajomosc_Jezykow" Type="Self.Znajomosc_Jezykow" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Pracownicy">
+        <PropertyRef Name="ID_Pracownika" />
+      </Principal>
+      <Dependent Role="Znajomosc_Jezykow">
+        <PropertyRef Name="ID_Pracownika" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Pracownic__ID_Ro__4BAC3F29">
+    <End Role="Rodzaj_Umowy" Type="Self.Rodzaj_Umowy" Multiplicity="0..1" />
+    <End Role="Pracownicy_Zatrudnienie" Type="Self.Pracownicy_Zatrudnienie" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Rodzaj_Umowy">
+        <PropertyRef Name="ID_Rodzaj_Umowy" />
+      </Principal>
+      <Dependent Role="Pracownicy_Zatrudnienie">
+        <PropertyRef Name="ID_Rodzaju_Umowy" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Pracownic__ID_St__49C3F6B7">
+    <End Role="Stanowisko" Type="Self.Stanowisko" Multiplicity="0..1" />
+    <End Role="Pracownicy_Zatrudnienie" Type="Self.Pracownicy_Zatrudnienie" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Stanowisko">
+        <PropertyRef Name="ID_Stanowiska" />
+      </Principal>
+      <Dependent Role="Pracownicy_Zatrudnienie">
+        <PropertyRef Name="ID_Stanowiska" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Proces_Pr__ID_Za__59C55456">
+    <End Role="Zamowienie_Element" Type="Self.Zamowienie_Element" Multiplicity="1" />
+    <End Role="Proces_Produkcyjny" Type="Self.Proces_Produkcyjny" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Zamowienie_Element">
+        <PropertyRef Name="ID_Zamowienie_Element" />
+      </Principal>
+      <Dependent Role="Proces_Produkcyjny">
+        <PropertyRef Name="ID_Zamowienie_Element" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Realizacj__ID_Pr__6166761E">
+    <End Role="Proces_Produkcyjny" Type="Self.Proces_Produkcyjny" Multiplicity="1" />
+    <End Role="Realizacja_Procesu" Type="Self.Realizacja_Procesu" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Proces_Produkcyjny">
+        <PropertyRef Name="ID_Procesu_Produkcyjnego" />
+      </Principal>
+      <Dependent Role="Realizacja_Procesu">
+        <PropertyRef Name="ID_Procesu_Produkcyjnego" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Proces_Za__ID_Pr__4E53A1AA">
+    <End Role="Proces_Technologiczny" Type="Self.Proces_Technologiczny" Multiplicity="1" />
+    <End Role="Proces_Zamowienie" Type="Self.Proces_Zamowienie" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Proces_Technologiczny">
+        <PropertyRef Name="ID_Proces_Technologiczny" />
+      </Principal>
+      <Dependent Role="Proces_Zamowienie">
+        <PropertyRef Name="ID_Proces_Technologiczny" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Proces_Za__ID_Za__4F47C5E3">
+    <End Role="Zamowienie_Element" Type="Self.Zamowienie_Element" Multiplicity="1" />
+    <End Role="Proces_Zamowienie" Type="Self.Proces_Zamowienie" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Zamowienie_Element">
+        <PropertyRef Name="ID_Zamowienie_Element" />
+      </Principal>
+      <Dependent Role="Proces_Zamowienie">
+        <PropertyRef Name="ID_Zamowienie_Element" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Przydzial__ID_Re__65370702">
+    <End Role="Realizacja_Procesu" Type="Self.Realizacja_Procesu" Multiplicity="1" />
+    <End Role="Przydzial_Zasobow" Type="Self.Przydzial_Zasobow" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Realizacja_Procesu">
+        <PropertyRef Name="ID_Realizacji_Procesu" />
+      </Principal>
+      <Dependent Role="Przydzial_Zasobow">
+        <PropertyRef Name="ID_Realizacji_Procesu" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Realizacj__ID_Et__625A9A57">
+    <End Role="Rodzaj_Etapu" Type="Self.Rodzaj_Etapu" Multiplicity="1" />
+    <End Role="Realizacja_Procesu" Type="Self.Realizacja_Procesu" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Rodzaj_Etapu">
+        <PropertyRef Name="ID_Etapu" />
+      </Principal>
+      <Dependent Role="Realizacja_Procesu">
+        <PropertyRef Name="ID_Etapu" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Urlop__ID_Rodzaj__44FF419A">
+    <End Role="Rodzaj_Urlopu" Type="Self.Rodzaj_Urlopu" Multiplicity="0..1" />
+    <End Role="Urlop" Type="Self.Urlop" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Rodzaj_Urlopu">
+        <PropertyRef Name="ID_Rodzaj_Urlopu" />
+      </Principal>
+      <Dependent Role="Urlop">
+        <PropertyRef Name="ID_Rodzaj_Urlopu" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Zamowieni__ID_st__114A936A">
+    <End Role="Statusy" Type="Self.Statusy" Multiplicity="0..1" />
+    <End Role="Zamowienia_Dostawy" Type="Self.Zamowienia_Dostawy" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Statusy">
+        <PropertyRef Name="ID_statusu" />
+      </Principal>
+      <Dependent Role="Zamowienia_Dostawy">
+        <PropertyRef Name="ID_statusu" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Zamowieni__ID_Um__0D7A0286">
+    <End Role="Umowy_Kurierzy" Type="Self.Umowy_Kurierzy" Multiplicity="0..1" />
+    <End Role="Zamowienia_Przydzial" Type="Self.Zamowienia_Przydzial" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Umowy_Kurierzy">
+        <PropertyRef Name="ID_Umowy" />
+      </Principal>
+      <Dependent Role="Zamowienia_Przydzial">
+        <PropertyRef Name="ID_Umowy" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Urlop__ID_Wymiar__45F365D3">
+    <End Role="Wymiar_Urlopu" Type="Self.Wymiar_Urlopu" Multiplicity="0..1" />
+    <End Role="Urlop" Type="Self.Urlop" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Wymiar_Urlopu">
+        <PropertyRef Name="ID_Wymiar_Urlopu" />
+      </Principal>
+      <Dependent Role="Urlop">
+        <PropertyRef Name="ID_Wymiar_Urlopu" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Zamowieni__ID_Za__0B91BA14">
+    <End Role="Zamowienia" Type="Self.Zamowienia" Multiplicity="0..1" />
+    <End Role="Zamowienia_Przydzial" Type="Self.Zamowienia_Przydzial" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Zamowienia">
+        <PropertyRef Name="ID_Zamowienia" />
+      </Principal>
+      <Dependent Role="Zamowienia_Przydzial">
+        <PropertyRef Name="ID_Zamowienia" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Zamowieni__ID_Za__10566F31">
+    <End Role="Zamowienia" Type="Self.Zamowienia" Multiplicity="0..1" />
+    <End Role="Zamowienia_Dostawy" Type="Self.Zamowienia_Dostawy" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Zamowienia">
+        <PropertyRef Name="ID_Zamowienia" />
+      </Principal>
+      <Dependent Role="Zamowienia_Dostawy">
+        <PropertyRef Name="ID_Zamowienia" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Zamowieni__ID_Za__2A164134">
+    <End Role="Zamowienia" Type="Self.Zamowienia" Multiplicity="0..1" />
+    <End Role="Zamowienie_Element" Type="Self.Zamowienie_Element" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Zamowienia">
+        <PropertyRef Name="ID_Zamowienia" />
+      </Principal>
+      <Dependent Role="Zamowienie_Element">
+        <PropertyRef Name="ID_Zamowienia" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Zawartosc__ID_Do__17036CC0">
+    <End Role="Zamowienia_Dostawy" Type="Self.Zamowienia_Dostawy" Multiplicity="0..1" />
+    <End Role="Zawartosc" Type="Self.Zawartosc" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Zamowienia_Dostawy">
+        <PropertyRef Name="ID_Dostawy" />
+      </Principal>
+      <Dependent Role="Zawartosc">
+        <PropertyRef Name="ID_Dostawy" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="SzwalniaEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Czesci_Obsluga" EntityType="Self.Czesci_Obsluga" />
+    <EntitySet Name="Dokumentacja_Proces" EntityType="Self.Dokumentacja_Proces" />
+    <EntitySet Name="Dokumentacje" EntityType="Self.Dokumentacje" />
+    <EntitySet Name="Dostarczenia_Wewn" EntityType="Self.Dostarczenia_Wewn" />
+    <EntitySet Name="Dostarczenia_Zewn" EntityType="Self.Dostarczenia_Zewn" />
+    <EntitySet Name="Dostawcy_Zaopatrzenie" EntityType="Self.Dostawcy_Zaopatrzenie" />
+    <EntitySet Name="Dostawy_Zawartosc" EntityType="Self.Dostawy_Zawartosc" />
+    <EntitySet Name="Dzialy" EntityType="Self.Dzialy" />
+    <EntitySet Name="Elementy" EntityType="Self.Elementy" />
+    <EntitySet Name="Elementy_Cechy" EntityType="Self.Elementy_Cechy" />
+    <EntitySet Name="Elementy_Cechy_Slownik" EntityType="Self.Elementy_Cechy_Slownik" />
+    <EntitySet Name="Elementy_Jednostki" EntityType="Self.Elementy_Jednostki" />
+    <EntitySet Name="Elementy_Proces" EntityType="Self.Elementy_Proces" />
+    <EntitySet Name="Elementy_Typy" EntityType="Self.Elementy_Typy" />
+    <EntitySet Name="Etapy_W_Procesie" EntityType="Self.Etapy_W_Procesie" />
+    <EntitySet Name="Etat" EntityType="Self.Etat" />
+    <EntitySet Name="Faktury_Zewnetrzne" EntityType="Self.Faktury_Zewnetrzne" />
+    <EntitySet Name="Grupa" EntityType="Self.Grupa" />
+    <EntitySet Name="Jezyk" EntityType="Self.Jezyk" />
+    <EntitySet Name="Klienci" EntityType="Self.Klienci" />
+    <EntitySet Name="Kontrola_Efektywnosci" EntityType="Self.Kontrola_Efektywnosci" />
+    <EntitySet Name="Kurierzy" EntityType="Self.Kurierzy" />
+    <EntitySet Name="Maszyny" EntityType="Self.Maszyny" />
+    <EntitySet Name="Maszyny_Proces" EntityType="Self.Maszyny_Proces" />
+    <EntitySet Name="Material_Na_Produkcji" EntityType="Self.Material_Na_Produkcji" />
+    <EntitySet Name="Miejsca" EntityType="Self.Miejsca" />
+    <EntitySet Name="Obsluga_Techniczna" EntityType="Self.Obsluga_Techniczna" />
+    <EntitySet Name="Oferta" EntityType="Self.Oferta" />
+    <EntitySet Name="Pensja" EntityType="Self.Pensja" />
+    <EntitySet Name="Polki" EntityType="Self.Polki" />
+    <EntitySet Name="Polki_Rozmiary" EntityType="Self.Polki_Rozmiary" />
+    <EntitySet Name="Pracownicy" EntityType="Self.Pracownicy" />
+    <EntitySet Name="Pracownicy_Zatrudnienie" EntityType="Self.Pracownicy_Zatrudnienie" />
+    <EntitySet Name="Proces_Produkcyjny" EntityType="Self.Proces_Produkcyjny" />
+    <EntitySet Name="Proces_Technologiczny" EntityType="Self.Proces_Technologiczny" />
+    <EntitySet Name="Proces_Zamowienie" EntityType="Self.Proces_Zamowienie" />
+    <EntitySet Name="Przydzial_Zasobow" EntityType="Self.Przydzial_Zasobow" />
+    <EntitySet Name="Realizacja_Procesu" EntityType="Self.Realizacja_Procesu" />
+    <EntitySet Name="Regaly" EntityType="Self.Regaly" />
+    <EntitySet Name="Rodzaj_Dokumentacji" EntityType="Self.Rodzaj_Dokumentacji" />
+    <EntitySet Name="Rodzaj_Etapu" EntityType="Self.Rodzaj_Etapu" />
+    <EntitySet Name="Rodzaj_Maszyny" EntityType="Self.Rodzaj_Maszyny" />
+    <EntitySet Name="Rodzaj_Obslugi" EntityType="Self.Rodzaj_Obslugi" />
+    <EntitySet Name="Rodzaj_Umowy" EntityType="Self.Rodzaj_Umowy" />
+    <EntitySet Name="Rodzaj_Urlopu" EntityType="Self.Rodzaj_Urlopu" />
+    <EntitySet Name="Srodki_Trwale" EntityType="Self.Srodki_Trwale" />
+    <EntitySet Name="Stanowisko" EntityType="Self.Stanowisko" />
+    <EntitySet Name="Statusy" EntityType="Self.Statusy" />
+    <EntitySet Name="Umowy_Kurierzy" EntityType="Self.Umowy_Kurierzy" />
+    <EntitySet Name="Urlop" EntityType="Self.Urlop" />
+    <EntitySet Name="Wymiar_Urlopu" EntityType="Self.Wymiar_Urlopu" />
+    <EntitySet Name="Zamowienia" EntityType="Self.Zamowienia" />
+    <EntitySet Name="Zamowienia_Dostawy" EntityType="Self.Zamowienia_Dostawy" />
+    <EntitySet Name="Zamowienia_Przydzial" EntityType="Self.Zamowienia_Przydzial" />
+    <EntitySet Name="Zamowienie_Element" EntityType="Self.Zamowienie_Element" />
+    <EntitySet Name="Zawartosc" EntityType="Self.Zawartosc" />
+    <EntitySet Name="Znajomosc_Jezykow" EntityType="Self.Znajomosc_Jezykow" />
+    <EntitySet Name="vCechyElementu" EntityType="Self.vCechyElementu" />
+    <EntitySet Name="vMaszyny_rodzaj_liczba" EntityType="Self.vMaszyny_rodzaj_liczba" />
+    <EntitySet Name="vMaszyny_serwis" EntityType="Self.vMaszyny_serwis" />
+    <EntitySet Name="vObsluga" EntityType="Self.vObsluga" />
+    <EntitySet Name="vPolki_na_regalach" EntityType="Self.vPolki_na_regalach" />
+    <EntitySet Name="vRealizacjaProcesuProdukcyjnegoDetails" EntityType="Self.vRealizacjaProcesuProdukcyjnegoDetails" />
+    <EntitySet Name="vSrednia_ilosc_maszyn" EntityType="Self.vSrednia_ilosc_maszyn" />
+    <EntitySet Name="vSuma_czasu_procesu" EntityType="Self.vSuma_czasu_procesu" />
+    <EntitySet Name="vZawartosc_polki" EntityType="Self.vZawartosc_polki" />
+    <AssociationSet Name="FK__Czesci_Ob__ID_El__4B7734FF" Association="Self.FK__Czesci_Ob__ID_El__4B7734FF">
+      <End Role="Elementy" EntitySet="Elementy" />
+      <End Role="Czesci_Obsluga" EntitySet="Czesci_Obsluga" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Czesci_Ob__ID_Ob__4A8310C6" Association="Self.FK__Czesci_Ob__ID_Ob__4A8310C6">
+      <End Role="Obsluga_Techniczna" EntitySet="Obsluga_Techniczna" />
+      <End Role="Czesci_Obsluga" EntitySet="Czesci_Obsluga" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Dokumenta__ID_Do__3A4CA8FD" Association="Self.FK__Dokumenta__ID_Do__3A4CA8FD">
+      <End Role="Dokumentacje" EntitySet="Dokumentacje" />
+      <End Role="Dokumentacja_Proces" EntitySet="Dokumentacja_Proces" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Dokumenta__ID_Pr__3B40CD36" Association="Self.FK__Dokumenta__ID_Pr__3B40CD36">
+      <End Role="Proces_Technologiczny" EntitySet="Proces_Technologiczny" />
+      <End Role="Dokumentacja_Proces" EntitySet="Dokumentacja_Proces" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Dokumenta__ID_Pr__3493CFA7" Association="Self.FK__Dokumenta__ID_Pr__3493CFA7">
+      <End Role="Pracownicy" EntitySet="Pracownicy" />
+      <End Role="Dokumentacje" EntitySet="Dokumentacje" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Dokumenta__ID_Ro__339FAB6E" Association="Self.FK__Dokumenta__ID_Ro__339FAB6E">
+      <End Role="Rodzaj_Dokumentacji" EntitySet="Rodzaj_Dokumentacji" />
+      <End Role="Dokumentacje" EntitySet="Dokumentacje" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Dostarcze__ID_Do__1F98B2C1" Association="Self.FK__Dostarcze__ID_Do__1F98B2C1">
+      <End Role="Zamowienia_Dostawy" EntitySet="Zamowienia_Dostawy" />
+      <End Role="Dostarczenia_Wewn" EntitySet="Dostarczenia_Wewn" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Dostarcze__ID_el__208CD6FA" Association="Self.FK__Dostarcze__ID_el__208CD6FA">
+      <End Role="Elementy" EntitySet="Elementy" />
+      <End Role="Dostarczenia_Wewn" EntitySet="Dostarczenia_Wewn" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Dostarcze__ID_Mi__2180FB33" Association="Self.FK__Dostarcze__ID_Mi__2180FB33">
+      <End Role="Miejsca" EntitySet="Miejsca" />
+      <End Role="Dostarczenia_Wewn" EntitySet="Dostarczenia_Wewn" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Dostarcze__ID_Pr__1EA48E88" Association="Self.FK__Dostarcze__ID_Pr__1EA48E88">
+      <End Role="Pracownicy" EntitySet="Pracownicy" />
+      <End Role="Dostarczenia_Wewn" EntitySet="Dostarczenia_Wewn" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Proces_Pr__ID_Do__5AB9788F" Association="Self.FK__Proces_Pr__ID_Do__5AB9788F">
+      <End Role="Dostarczenia_Wewn" EntitySet="Dostarczenia_Wewn" />
+      <End Role="Proces_Produkcyjny" EntitySet="Proces_Produkcyjny" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Dostarcze__ID_el__2645B050" Association="Self.FK__Dostarcze__ID_el__2645B050">
+      <End Role="Elementy" EntitySet="Elementy" />
+      <End Role="Dostarczenia_Zewn" EntitySet="Dostarczenia_Zewn" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Dostarcze__ID_Mi__2739D489" Association="Self.FK__Dostarcze__ID_Mi__2739D489">
+      <End Role="Miejsca" EntitySet="Miejsca" />
+      <End Role="Dostarczenia_Zewn" EntitySet="Dostarczenia_Zewn" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Dostarcze__ID_Pr__245D67DE" Association="Self.FK__Dostarcze__ID_Pr__245D67DE">
+      <End Role="Pracownicy" EntitySet="Pracownicy" />
+      <End Role="Dostarczenia_Zewn" EntitySet="Dostarczenia_Zewn" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Dostarcze__ID_Za__25518C17" Association="Self.FK__Dostarcze__ID_Za__25518C17">
+      <End Role="Zamowienia" EntitySet="Zamowienia" />
+      <End Role="Dostarczenia_Zewn" EntitySet="Dostarczenia_Zewn" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Oferta__ID_Dosta__07C12930" Association="Self.FK__Oferta__ID_Dosta__07C12930">
+      <End Role="Dostawcy_Zaopatrzenie" EntitySet="Dostawcy_Zaopatrzenie" />
+      <End Role="Oferta" EntitySet="Oferta" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Dostawy_Z__ID_Do__19DFD96B" Association="Self.FK__Dostawy_Z__ID_Do__19DFD96B">
+      <End Role="Zamowienia_Dostawy" EntitySet="Zamowienia_Dostawy" />
+      <End Role="Dostawy_Zawartosc" EntitySet="Dostawy_Zawartosc" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Dostawy_Z__ID_El__1AD3FDA4" Association="Self.FK__Dostawy_Z__ID_El__1AD3FDA4">
+      <End Role="Elementy" EntitySet="Elementy" />
+      <End Role="Dostawy_Zawartosc" EntitySet="Dostawy_Zawartosc" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Dostawy_Z__ID_of__1BC821DD" Association="Self.FK__Dostawy_Z__ID_of__1BC821DD">
+      <End Role="Oferta" EntitySet="Oferta" />
+      <End Role="Dostawy_Zawartosc" EntitySet="Dostawy_Zawartosc" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Pracownic__ID_Dz__4CA06362" Association="Self.FK__Pracownic__ID_Dz__4CA06362">
+      <End Role="Dzialy" EntitySet="Dzialy" />
+      <End Role="Pracownicy_Zatrudnienie" EntitySet="Pracownicy_Zatrudnienie" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Srodki_Tr__ID_Dz__2E1BDC42" Association="Self.FK__Srodki_Tr__ID_Dz__2E1BDC42">
+      <End Role="Dzialy" EntitySet="Dzialy" />
+      <End Role="Srodki_Trwale" EntitySet="Srodki_Trwale" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Elementy___ID_El__531856C7" Association="Self.FK__Elementy___ID_El__531856C7">
+      <End Role="Elementy" EntitySet="Elementy" />
+      <End Role="Elementy_Proces" EntitySet="Elementy_Proces" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Elementy___ID_El__7F2BE32F" Association="Self.FK__Elementy___ID_El__7F2BE32F">
+      <End Role="Elementy" EntitySet="Elementy" />
+      <End Role="Elementy_Cechy" EntitySet="Elementy_Cechy" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Elementy__ID_Ele__7C4F7684" Association="Self.FK__Elementy__ID_Ele__7C4F7684">
+      <End Role="Elementy_Typy" EntitySet="Elementy_Typy" />
+      <End Role="Elementy" EntitySet="Elementy" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Oferta__ID_Eleme__06CD04F7" Association="Self.FK__Oferta__ID_Eleme__06CD04F7">
+      <End Role="Elementy" EntitySet="Elementy" />
+      <End Role="Oferta" EntitySet="Oferta" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Zamowieni__ID_El__2B0A656D" Association="Self.FK__Zamowieni__ID_El__2B0A656D">
+      <End Role="Elementy" EntitySet="Elementy" />
+      <End Role="Zamowienie_Element" EntitySet="Zamowienie_Element" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Zawartosc__ID_El__160F4887" Association="Self.FK__Zawartosc__ID_El__160F4887">
+      <End Role="Elementy" EntitySet="Elementy" />
+      <End Role="Zawartosc" EntitySet="Zawartosc" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Elementy___ID_Ce__00200768" Association="Self.FK__Elementy___ID_Ce__00200768">
+      <End Role="Elementy_Cechy_Slownik" EntitySet="Elementy_Cechy_Slownik" />
+      <End Role="Elementy_Cechy" EntitySet="Elementy_Cechy" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Elementy___ID_Je__01142BA1" Association="Self.FK__Elementy___ID_Je__01142BA1">
+      <End Role="Elementy_Jednostki" EntitySet="Elementy_Jednostki" />
+      <End Role="Elementy_Cechy" EntitySet="Elementy_Cechy" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Oferta__ID_Jedno__08B54D69" Association="Self.FK__Oferta__ID_Jedno__08B54D69">
+      <End Role="Elementy_Jednostki" EntitySet="Elementy_Jednostki" />
+      <End Role="Oferta" EntitySet="Oferta" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Elementy___ID_Pr__5224328E" Association="Self.FK__Elementy___ID_Pr__5224328E">
+      <End Role="Proces_Technologiczny" EntitySet="Proces_Technologiczny" />
+      <End Role="Elementy_Proces" EntitySet="Elementy_Proces" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Material___ID_El__5E8A0973" Association="Self.FK__Material___ID_El__5E8A0973">
+      <End Role="Elementy_Proces" EntitySet="Elementy_Proces" />
+      <End Role="Material_Na_Produkcji" EntitySet="Material_Na_Produkcji" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Etapy_W_P__ID_Et__56E8E7AB" Association="Self.FK__Etapy_W_P__ID_Et__56E8E7AB">
+      <End Role="Rodzaj_Etapu" EntitySet="Rodzaj_Etapu" />
+      <End Role="Etapy_W_Procesie" EntitySet="Etapy_W_Procesie" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Etapy_W_P__ID_Pr__55F4C372" Association="Self.FK__Etapy_W_P__ID_Pr__55F4C372">
+      <End Role="Proces_Technologiczny" EntitySet="Proces_Technologiczny" />
+      <End Role="Etapy_W_Procesie" EntitySet="Etapy_W_Procesie" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Pracownic__ID_Et__4AB81AF0" Association="Self.FK__Pracownic__ID_Et__4AB81AF0">
+      <End Role="Etat" EntitySet="Etat" />
+      <End Role="Pracownicy_Zatrudnienie" EntitySet="Pracownicy_Zatrudnienie" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Faktury_Z__ID_Gr__5DCAEF64" Association="Self.FK__Faktury_Z__ID_Gr__5DCAEF64">
+      <End Role="Grupa" EntitySet="Grupa" />
+      <End Role="Faktury_Zewnetrzne" EntitySet="Faktury_Zewnetrzne" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Znajomosc__ID_Je__534D60F1" Association="Self.FK__Znajomosc__ID_Je__534D60F1">
+      <End Role="Jezyk" EntitySet="Jezyk" />
+      <End Role="Znajomosc_Jezykow" EntitySet="Znajomosc_Jezykow" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Zamowieni__ID_Kl__571DF1D5" Association="Self.FK__Zamowieni__ID_Kl__571DF1D5">
+      <End Role="Klienci" EntitySet="Klienci" />
+      <End Role="Zamowienia" EntitySet="Zamowienia" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Kontrola___ID_Pr__69FBBC1F" Association="Self.FK__Kontrola___ID_Pr__69FBBC1F">
+      <End Role="Proces_Produkcyjny" EntitySet="Proces_Produkcyjny" />
+      <End Role="Kontrola_Efektywnosci" EntitySet="Kontrola_Efektywnosci" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Umowy_Kur__ID_Ku__03F0984C" Association="Self.FK__Umowy_Kur__ID_Ku__03F0984C">
+      <End Role="Kurierzy" EntitySet="Kurierzy" />
+      <End Role="Umowy_Kurierzy" EntitySet="Umowy_Kurierzy" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Maszyny__ID_Rodz__42E1EEFE" Association="Self.FK__Maszyny__ID_Rodz__42E1EEFE">
+      <End Role="Rodzaj_Maszyny" EntitySet="Rodzaj_Maszyny" />
+      <End Role="Maszyny" EntitySet="Maszyny" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Maszyny__ID_Srod__41EDCAC5" Association="Self.FK__Maszyny__ID_Srod__41EDCAC5">
+      <End Role="Srodki_Trwale" EntitySet="Srodki_Trwale" />
+      <End Role="Maszyny" EntitySet="Maszyny" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Obsluga_T__ID_Ma__45BE5BA9" Association="Self.FK__Obsluga_T__ID_Ma__45BE5BA9">
+      <End Role="Maszyny" EntitySet="Maszyny" />
+      <End Role="Obsluga_Techniczna" EntitySet="Obsluga_Techniczna" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Przydzial__ID_Ma__671F4F74" Association="Self.FK__Przydzial__ID_Ma__671F4F74">
+      <End Role="Maszyny" EntitySet="Maszyny" />
+      <End Role="Przydzial_Zasobow" EntitySet="Przydzial_Zasobow" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Maszyny_P__ID_Pr__3E1D39E1" Association="Self.FK__Maszyny_P__ID_Pr__3E1D39E1">
+      <End Role="Proces_Technologiczny" EntitySet="Proces_Technologiczny" />
+      <End Role="Maszyny_Proces" EntitySet="Maszyny_Proces" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Maszyny_P__ID_Ro__3F115E1A" Association="Self.FK__Maszyny_P__ID_Ro__3F115E1A">
+      <End Role="Rodzaj_Maszyny" EntitySet="Rodzaj_Maszyny" />
+      <End Role="Maszyny_Proces" EntitySet="Maszyny_Proces" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Material___ID_Pr__5D95E53A" Association="Self.FK__Material___ID_Pr__5D95E53A">
+      <End Role="Proces_Produkcyjny" EntitySet="Proces_Produkcyjny" />
+      <End Role="Material_Na_Produkcji" EntitySet="Material_Na_Produkcji" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Obsluga_T__ID_Pr__47A6A41B" Association="Self.FK__Obsluga_T__ID_Pr__47A6A41B">
+      <End Role="Pracownicy" EntitySet="Pracownicy" />
+      <End Role="Obsluga_Techniczna" EntitySet="Obsluga_Techniczna" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Obsluga_T__ID_Ro__46B27FE2" Association="Self.FK__Obsluga_T__ID_Ro__46B27FE2">
+      <End Role="Rodzaj_Obslugi" EntitySet="Rodzaj_Obslugi" />
+      <End Role="Obsluga_Techniczna" EntitySet="Obsluga_Techniczna" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Stanowisk__ID_Pe__33D4B598" Association="Self.FK__Stanowisk__ID_Pe__33D4B598">
+      <End Role="Pensja" EntitySet="Pensja" />
+      <End Role="Stanowisko" EntitySet="Stanowisko" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Polki__ID_Rozmia__6B24EA82" Association="Self.FK__Polki__ID_Rozmia__6B24EA82">
+      <End Role="Polki_Rozmiary" EntitySet="Polki_Rozmiary" />
+      <End Role="Polki" EntitySet="Polki" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Zawartosc__ID_Po__151B244E" Association="Self.FK__Zawartosc__ID_Po__151B244E">
+      <End Role="Polki" EntitySet="Polki" />
+      <End Role="Zawartosc" EntitySet="Zawartosc" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Pracownic__ID_Pr__48CFD27E" Association="Self.FK__Pracownic__ID_Pr__48CFD27E">
+      <End Role="Pracownicy" EntitySet="Pracownicy" />
+      <End Role="Pracownicy_Zatrudnienie" EntitySet="Pracownicy_Zatrudnienie" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Proces_Te__ID_Pr__37703C52" Association="Self.FK__Proces_Te__ID_Pr__37703C52">
+      <End Role="Pracownicy" EntitySet="Pracownicy" />
+      <End Role="Proces_Technologiczny" EntitySet="Proces_Technologiczny" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Przydzial__ID_Pr__662B2B3B" Association="Self.FK__Przydzial__ID_Pr__662B2B3B">
+      <End Role="Pracownicy" EntitySet="Pracownicy" />
+      <End Role="Przydzial_Zasobow" EntitySet="Przydzial_Zasobow" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Urlop__ID_Pracow__4222D4EF" Association="Self.FK__Urlop__ID_Pracow__4222D4EF">
+      <End Role="Pracownicy" EntitySet="Pracownicy" />
+      <End Role="Urlop" EntitySet="Urlop" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Zamowieni__ID_Pr__0C85DE4D" Association="Self.FK__Zamowieni__ID_Pr__0C85DE4D">
+      <End Role="Pracownicy" EntitySet="Pracownicy" />
+      <End Role="Zamowienia_Przydzial" EntitySet="Zamowienia_Przydzial" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Zamowieni__ID_Pr__5812160E" Association="Self.FK__Zamowieni__ID_Pr__5812160E">
+      <End Role="Pracownicy" EntitySet="Pracownicy" />
+      <End Role="Zamowienia" EntitySet="Zamowienia" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Znajomosc__ID_Pr__5441852A" Association="Self.FK__Znajomosc__ID_Pr__5441852A">
+      <End Role="Pracownicy" EntitySet="Pracownicy" />
+      <End Role="Znajomosc_Jezykow" EntitySet="Znajomosc_Jezykow" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Pracownic__ID_Ro__4BAC3F29" Association="Self.FK__Pracownic__ID_Ro__4BAC3F29">
+      <End Role="Rodzaj_Umowy" EntitySet="Rodzaj_Umowy" />
+      <End Role="Pracownicy_Zatrudnienie" EntitySet="Pracownicy_Zatrudnienie" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Pracownic__ID_St__49C3F6B7" Association="Self.FK__Pracownic__ID_St__49C3F6B7">
+      <End Role="Stanowisko" EntitySet="Stanowisko" />
+      <End Role="Pracownicy_Zatrudnienie" EntitySet="Pracownicy_Zatrudnienie" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Proces_Pr__ID_Za__59C55456" Association="Self.FK__Proces_Pr__ID_Za__59C55456">
+      <End Role="Zamowienie_Element" EntitySet="Zamowienie_Element" />
+      <End Role="Proces_Produkcyjny" EntitySet="Proces_Produkcyjny" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Realizacj__ID_Pr__6166761E" Association="Self.FK__Realizacj__ID_Pr__6166761E">
+      <End Role="Proces_Produkcyjny" EntitySet="Proces_Produkcyjny" />
+      <End Role="Realizacja_Procesu" EntitySet="Realizacja_Procesu" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Proces_Za__ID_Pr__4E53A1AA" Association="Self.FK__Proces_Za__ID_Pr__4E53A1AA">
+      <End Role="Proces_Technologiczny" EntitySet="Proces_Technologiczny" />
+      <End Role="Proces_Zamowienie" EntitySet="Proces_Zamowienie" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Proces_Za__ID_Za__4F47C5E3" Association="Self.FK__Proces_Za__ID_Za__4F47C5E3">
+      <End Role="Zamowienie_Element" EntitySet="Zamowienie_Element" />
+      <End Role="Proces_Zamowienie" EntitySet="Proces_Zamowienie" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Przydzial__ID_Re__65370702" Association="Self.FK__Przydzial__ID_Re__65370702">
+      <End Role="Realizacja_Procesu" EntitySet="Realizacja_Procesu" />
+      <End Role="Przydzial_Zasobow" EntitySet="Przydzial_Zasobow" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Realizacj__ID_Et__625A9A57" Association="Self.FK__Realizacj__ID_Et__625A9A57">
+      <End Role="Rodzaj_Etapu" EntitySet="Rodzaj_Etapu" />
+      <End Role="Realizacja_Procesu" EntitySet="Realizacja_Procesu" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Urlop__ID_Rodzaj__44FF419A" Association="Self.FK__Urlop__ID_Rodzaj__44FF419A">
+      <End Role="Rodzaj_Urlopu" EntitySet="Rodzaj_Urlopu" />
+      <End Role="Urlop" EntitySet="Urlop" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Zamowieni__ID_st__114A936A" Association="Self.FK__Zamowieni__ID_st__114A936A">
+      <End Role="Statusy" EntitySet="Statusy" />
+      <End Role="Zamowienia_Dostawy" EntitySet="Zamowienia_Dostawy" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Zamowieni__ID_Um__0D7A0286" Association="Self.FK__Zamowieni__ID_Um__0D7A0286">
+      <End Role="Umowy_Kurierzy" EntitySet="Umowy_Kurierzy" />
+      <End Role="Zamowienia_Przydzial" EntitySet="Zamowienia_Przydzial" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Urlop__ID_Wymiar__45F365D3" Association="Self.FK__Urlop__ID_Wymiar__45F365D3">
+      <End Role="Wymiar_Urlopu" EntitySet="Wymiar_Urlopu" />
+      <End Role="Urlop" EntitySet="Urlop" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Zamowieni__ID_Za__0B91BA14" Association="Self.FK__Zamowieni__ID_Za__0B91BA14">
+      <End Role="Zamowienia" EntitySet="Zamowienia" />
+      <End Role="Zamowienia_Przydzial" EntitySet="Zamowienia_Przydzial" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Zamowieni__ID_Za__10566F31" Association="Self.FK__Zamowieni__ID_Za__10566F31">
+      <End Role="Zamowienia" EntitySet="Zamowienia" />
+      <End Role="Zamowienia_Dostawy" EntitySet="Zamowienia_Dostawy" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Zamowieni__ID_Za__2A164134" Association="Self.FK__Zamowieni__ID_Za__2A164134">
+      <End Role="Zamowienia" EntitySet="Zamowienia" />
+      <End Role="Zamowienie_Element" EntitySet="Zamowienie_Element" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Zawartosc__ID_Do__17036CC0" Association="Self.FK__Zawartosc__ID_Do__17036CC0">
+      <End Role="Zamowienia_Dostawy" EntitySet="Zamowienia_Dostawy" />
+      <End Role="Zawartosc" EntitySet="Zawartosc" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

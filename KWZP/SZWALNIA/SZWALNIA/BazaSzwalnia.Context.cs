@@ -20,6 +20,11 @@ namespace SZWALNIA
         {
         }
 
+        internal Srodki_Trwale Srodki_Trwale(Func<object, object> p)
+        {
+            throw new NotImplementedException();
+        }
+
         internal Maszyny_Proces Maszyny_Proces(Func<object, object> p)
         {
             throw new NotImplementedException();
@@ -53,7 +58,6 @@ namespace SZWALNIA
         public virtual DbSet<Kontrola_Efektywnosci> Kontrola_Efektywnosci { get; set; }
         public virtual DbSet<Kurierzy> Kurierzy { get; set; }
         public virtual DbSet<Maszyny> Maszyny { get; set; }
-        public virtual DbSet<Maszyny_Proces> Maszyny_Proces { get; set; }
         public virtual DbSet<Material_Na_Produkcji> Material_Na_Produkcji { get; set; }
         public virtual DbSet<Miejsca> Miejsca { get; set; }
         public virtual DbSet<Obsluga_Techniczna> Obsluga_Techniczna { get; set; }
@@ -75,7 +79,6 @@ namespace SZWALNIA
         public virtual DbSet<Rodzaj_Obslugi> Rodzaj_Obslugi { get; set; }
         public virtual DbSet<Rodzaj_Umowy> Rodzaj_Umowy { get; set; }
         public virtual DbSet<Rodzaj_Urlopu> Rodzaj_Urlopu { get; set; }
-        public virtual DbSet<Srodki_Trwale> Srodki_Trwale { get; set; }
         public virtual DbSet<Stanowisko> Stanowisko { get; set; }
         public virtual DbSet<Statusy> Statusy { get; set; }
         public virtual DbSet<Umowy_Kurierzy> Umowy_Kurierzy { get; set; }

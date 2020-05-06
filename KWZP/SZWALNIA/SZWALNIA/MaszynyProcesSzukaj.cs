@@ -18,11 +18,10 @@ namespace SZWALNIA
             InitializeComponent();
             szwalnia = db;
         }
-        private void btnSzukaj_Click(object sender, EventArgs e)
+        private void btnSzukaj_Click_1(object sender, EventArgs e)
         {
             MaszynyProcesWykonaj maszynyProcesWykonaj = new MaszynyProcesWykonaj(szwalnia, txtbSzukaj.Text);
             maszynyProcesWykonaj.Show();
         }
-
     }
 }

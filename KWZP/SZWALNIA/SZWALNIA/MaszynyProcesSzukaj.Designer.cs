@@ -70,6 +70,7 @@
             this.btnSzukaj.TabIndex = 14;
             this.btnSzukaj.Text = "Szukaj";
             this.btnSzukaj.UseVisualStyleBackColor = true;
+            this.btnSzukaj.Click += new System.EventHandler(this.btnSzukaj_Click_1);
             // 
             // MaszynyProcesSzukaj
             // 
