@@ -20,15 +20,6 @@ namespace SZWALNIA
         {
         }
 
-        internal Srodki_Trwale Srodki_Trwale(Func<object, object> p)
-        {
-            throw new NotImplementedException();
-        }
-
-        internal Maszyny_Proces Maszyny_Proces(Func<object, object> p)
-        {
-            throw new NotImplementedException();
-        }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {

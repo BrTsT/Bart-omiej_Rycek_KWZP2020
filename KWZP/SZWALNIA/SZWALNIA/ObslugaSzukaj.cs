@@ -20,8 +20,8 @@ namespace SZWALNIA
         }
         private void btnSzukaj_Click_1(object sender, EventArgs e)
         {
-            MaszynyProcesWykonaj maszynyProcesWykonaj = new MaszynyProcesWykonaj(szwalnia, txtbSzukaj.Text);
-            maszynyProcesWykonaj.Show();
+            ObslugaZrobione obslugaZrobione = new ObslugaZrobione(szwalnia, txtbSzukaj.Text);
+            obslugaZrobione.Show();
         }
     }
 }

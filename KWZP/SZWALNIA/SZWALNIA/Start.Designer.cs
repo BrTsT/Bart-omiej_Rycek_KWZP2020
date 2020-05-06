@@ -36,7 +36,7 @@
             this.btnPrzygotowanieProdukcji.Font = new System.Drawing.Font("Microsoft Sans Serif", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.btnPrzygotowanieProdukcji.Location = new System.Drawing.Point(12, 12);
             this.btnPrzygotowanieProdukcji.Name = "btnPrzygotowanieProdukcji";
-            this.btnPrzygotowanieProdukcji.Size = new System.Drawing.Size(259, 107);
+            this.btnPrzygotowanieProdukcji.Size = new System.Drawing.Size(294, 107);
             this.btnPrzygotowanieProdukcji.TabIndex = 0;
             this.btnPrzygotowanieProdukcji.Text = "Przygotowanie Produkcji";
             this.btnPrzygotowanieProdukcji.UseVisualStyleBackColor = true;
