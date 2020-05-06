@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="d4a5d47e9b904e31851b0b9aa3b141bb" Name="Diagram1" ZoomLevel="55">
+        <EntityTypeShape EntityType="Szwalnia11Model.Czesci_Obsluga" Width="1.5" PointX="8.25" PointY="34.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="Szwalnia11Model.Dokumentacja_Proces" Width="1.5" PointX="5.25" PointY="40.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="Szwalnia11Model.Dokumentacje" Width="1.5" PointX="3" PointY="30.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="Szwalnia11Model.Dostarczenia_Wewn" Width="1.5" PointX="6" PointY="30" IsExpanded="true" />
+        <EntityTypeShape EntityType="Szwalnia11Model.Dostarczenia_Zewn" Width="1.5" PointX="3" PointY="26.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="Szwalnia11Model.Dostawcy_Zaopatrzenie" Width="1.5" PointX="12" PointY="41.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="Szwalnia11Model.Dostawy_Zawartosc" Width="1.5" PointX="16.5" PointY="30.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="Szwalnia11Model.Dzialy" Width="1.5" PointX="3.75" PointY="21.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Szwalnia11Model.Elementy" Width="1.5" PointX="0.75" PointY="22.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="Szwalnia11Model.Elementy_Cechy" Width="1.5" PointX="16.25" PointY="38" IsExpanded="true" />
+        <EntityTypeShape EntityType="Szwalnia11Model.Elementy_Cechy_Slownik" Width="1.5" PointX="14" PointY="47.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="Szwalnia11Model.Elementy_Jednostki" Width="1.5" PointX="12" PointY="44.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="Szwalnia11Model.Elementy_Proces" Width="1.5" PointX="5.25" PointY="49.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="Szwalnia11Model.Elementy_Typy" Width="1.5" PointX="1.5" PointY="19.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="Szwalnia11Model.Etapy_W_Procesie" Width="1.5" PointX="5.25" PointY="46.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="Szwalnia11Model.Etat" Width="1.5" PointX="3.75" PointY="18.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="Szwalnia11Model.Faktury_Zewnetrzne" Width="1.5" PointX="3" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="Szwalnia11Model.Grupa" Width="1.5" PointX="0.75" PointY="1.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="Szwalnia11Model.Jezyk" Width="1.5" PointX="6.75" PointY="17.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Szwalnia11Model.Klienci" Width="1.5" PointX="6.75" PointY="21.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="Szwalnia11Model.Kontrola_Efektywnosci" Width="1.5" PointX="13.5" PointY="26.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="Szwalnia11Model.Kurierzy" Width="1.5" PointX="6.75" PointY="14.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="Szwalnia11Model.Maszyny" Width="1.5" PointX="16.5" PointY="18.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="Szwalnia11Model.Maszyny_Proces" Width="1.5" PointX="8.25" PointY="49.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="Szwalnia11Model.Material_Na_Produkcji" Width="1.5" PointX="13.5" PointY="37.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="Szwalnia11Model.Miejsca" Width="1.5" PointX="0.75" PointY="35.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="Szwalnia11Model.Obsluga_Techniczna" Width="1.5" PointX="3" PointY="34.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="Szwalnia11Model.Oferta" Width="1.5" PointX="14.25" PointY="41.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="Szwalnia11Model.Pensja" Width="1.5" PointX="1.5" PointY="43.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="Szwalnia11Model.Polki" Width="1.5" PointX="17.25" PointY="34.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="Szwalnia11Model.Polki_Rozmiary" Width="1.5" PointX="15" PointY="34.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="Szwalnia11Model.Pracownicy" Width="1.5" PointX="0.75" PointY="29.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="Szwalnia11Model.Pracownicy_Zatrudnienie" Width="1.5" PointX="6" PointY="24.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="Szwalnia11Model.Proces_Produkcyjny" Width="1.5" PointX="11.25" PointY="26" IsExpanded="true" />
+        <EntityTypeShape EntityType="Szwalnia11Model.Proces_Technologiczny" Width="1.5" PointX="3" PointY="49.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="Szwalnia11Model.Proces_Zamowienie" Width="1.5" PointX="5.25" PointY="52.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="Szwalnia11Model.Przydzial_Zasobow" Width="1.5" PointX="18.75" PointY="26.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="Szwalnia11Model.Realizacja_Procesu" Width="1.5" PointX="16.5" PointY="26.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="Szwalnia11Model.Regaly" Width="1.5" PointX="0.75" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Szwalnia11Model.Rodzaj_Dokumentacji" Width="1.5" PointX="0.75" PointY="37.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="Szwalnia11Model.Rodzaj_Etapu" Width="1.5" PointX="14.25" PointY="23.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Szwalnia11Model.Rodzaj_Maszyny" Width="1.5" PointX="14.25" PointY="17" IsExpanded="true" />
+        <EntityTypeShape EntityType="Szwalnia11Model.Rodzaj_Obslugi" Width="1.5" PointX="0.75" PointY="40.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="Szwalnia11Model.Rodzaj_Umowy" Width="1.5" PointX="3.75" PointY="14.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="Szwalnia11Model.Rodzaj_Urlopu" Width="1.5" PointX="3.75" PointY="11.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="Szwalnia11Model.Srodki_Trwale" Width="1.5" PointX="14.25" PointY="19.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Szwalnia11Model.Stanowisko" Width="1.5" PointX="3.75" PointY="43.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="Szwalnia11Model.Statusy" Width="1.5" PointX="12" PointY="22.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="Szwalnia11Model.Umowy_Kurierzy" Width="1.5" PointX="9" PointY="14.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="Szwalnia11Model.Urlop" Width="1.5" PointX="6" PointY="34.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="Szwalnia11Model.Wymiar_Urlopu" Width="1.5" PointX="3.75" PointY="56" IsExpanded="true" />
+        <EntityTypeShape EntityType="Szwalnia11Model.Zamowienia" Width="1.5" PointX="9" PointY="30" IsExpanded="true" />
+        <EntityTypeShape EntityType="Szwalnia11Model.Zamowienia_Dostawy" Width="1.5" PointX="14.25" PointY="30.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="Szwalnia11Model.Zamowienia_Przydzial" Width="1.5" PointX="11.25" PointY="30.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="Szwalnia11Model.Zamowienie_Element" Width="1.5" PointX="11.25" PointY="34.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="Szwalnia11Model.Zawartosc" Width="1.5" PointX="19.5" PointY="30.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="Szwalnia11Model.Znajomosc_Jezykow" Width="1.5" PointX="9" PointY="26.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="Szwalnia11Model.vCechyElementu" Width="1.5" PointX="2.75" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Szwalnia11Model.vMaszyny_rodzaj_liczba" Width="1.5" PointX="4.75" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Szwalnia11Model.vMaszyny_serwis" Width="1.5" PointX="5.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Szwalnia11Model.vObsluga" Width="1.5" PointX="6.75" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Szwalnia11Model.vPolki_na_regalach" Width="1.5" PointX="7.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Szwalnia11Model.vRealizacjaProcesuProdukcyjnegoDetails" Width="1.5" PointX="0.75" PointY="7.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Szwalnia11Model.vSrednia_ilosc_maszyn" Width="1.5" PointX="2.75" PointY="7.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Szwalnia11Model.vSuma_czasu_procesu" Width="1.5" PointX="4.75" PointY="7.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Szwalnia11Model.vZawartosc_polki" Width="1.5" PointX="6.75" PointY="7.75" IsExpanded="true" />
+        <AssociationConnector Association="Szwalnia11Model.FK__Czesci_Ob__ID_El__4B7734FF" ManuallyRouted="false" />
+        <AssociationConnector Association="Szwalnia11Model.FK__Czesci_Ob__ID_Ob__4A8310C6" ManuallyRouted="false" />
+        <AssociationConnector Association="Szwalnia11Model.FK__Dokumenta__ID_Do__3A4CA8FD" ManuallyRouted="false" />
+        <AssociationConnector Association="Szwalnia11Model.FK__Dokumenta__ID_Pr__3B40CD36" ManuallyRouted="false" />
+        <AssociationConnector Association="Szwalnia11Model.FK__Dokumenta__ID_Pr__3493CFA7" ManuallyRouted="false" />
+        <AssociationConnector Association="Szwalnia11Model.FK__Dokumenta__ID_Ro__339FAB6E" ManuallyRouted="false" />
+        <AssociationConnector Association="Szwalnia11Model.FK__Dostarcze__ID_Do__1F98B2C1" ManuallyRouted="false" />
+        <AssociationConnector Association="Szwalnia11Model.FK__Dostarcze__ID_el__208CD6FA" ManuallyRouted="false" />
+        <AssociationConnector Association="Szwalnia11Model.FK__Dostarcze__ID_Mi__2180FB33" ManuallyRouted="false" />
+        <AssociationConnector Association="Szwalnia11Model.FK__Dostarcze__ID_Pr__1EA48E88" ManuallyRouted="false" />
+        <AssociationConnector Association="Szwalnia11Model.FK__Proces_Pr__ID_Do__5AB9788F" ManuallyRouted="false" />
+        <AssociationConnector Association="Szwalnia11Model.FK__Dostarcze__ID_el__2645B050" ManuallyRouted="false" />
+        <AssociationConnector Association="Szwalnia11Model.FK__Dostarcze__ID_Mi__2739D489" ManuallyRouted="false" />
+        <AssociationConnector Association="Szwalnia11Model.FK__Dostarcze__ID_Pr__245D67DE" ManuallyRouted="false" />
+        <AssociationConnector Association="Szwalnia11Model.FK__Dostarcze__ID_Za__25518C17" ManuallyRouted="false" />
+        <AssociationConnector Association="Szwalnia11Model.FK__Oferta__ID_Dosta__07C12930" ManuallyRouted="false" />
+        <AssociationConnector Association="Szwalnia11Model.FK__Dostawy_Z__ID_Do__19DFD96B" ManuallyRouted="false" />
+        <AssociationConnector Association="Szwalnia11Model.FK__Dostawy_Z__ID_El__1AD3FDA4" ManuallyRouted="false" />
+        <AssociationConnector Association="Szwalnia11Model.FK__Dostawy_Z__ID_of__1BC821DD" ManuallyRouted="false" />
+        <AssociationConnector Association="Szwalnia11Model.FK__Pracownic__ID_Dz__4CA06362" ManuallyRouted="false" />
+        <AssociationConnector Association="Szwalnia11Model.FK__Srodki_Tr__ID_Dz__2E1BDC42" ManuallyRouted="false" />
+        <AssociationConnector Association="Szwalnia11Model.FK__Elementy___ID_El__531856C7" ManuallyRouted="false" />
+        <AssociationConnector Association="Szwalnia11Model.FK__Elementy___ID_El__7F2BE32F" ManuallyRouted="false" />
+        <AssociationConnector Association="Szwalnia11Model.FK__Elementy__ID_Ele__7C4F7684" ManuallyRouted="false" />
+        <AssociationConnector Association="Szwalnia11Model.FK__Oferta__ID_Eleme__06CD04F7" ManuallyRouted="false" />
+        <AssociationConnector Association="Szwalnia11Model.FK__Zamowieni__ID_El__2B0A656D" ManuallyRouted="false" />
+        <AssociationConnector Association="Szwalnia11Model.FK__Zawartosc__ID_El__160F4887" ManuallyRouted="false" />
+        <AssociationConnector Association="Szwalnia11Model.FK__Elementy___ID_Ce__00200768" ManuallyRouted="false" />
+        <AssociationConnector Association="Szwalnia11Model.FK__Elementy___ID_Je__01142BA1" ManuallyRouted="false" />
+        <AssociationConnector Association="Szwalnia11Model.FK__Oferta__ID_Jedno__08B54D69" ManuallyRouted="false" />
+        <AssociationConnector Association="Szwalnia11Model.FK__Elementy___ID_Pr__5224328E" ManuallyRouted="false" />
+        <AssociationConnector Association="Szwalnia11Model.FK__Material___ID_El__5E8A0973" ManuallyRouted="false" />
+        <AssociationConnector Association="Szwalnia11Model.FK__Etapy_W_P__ID_Et__56E8E7AB" ManuallyRouted="false" />
+        <AssociationConnector Association="Szwalnia11Model.FK__Etapy_W_P__ID_Pr__55F4C372" ManuallyRouted="false" />
+        <AssociationConnector Association="Szwalnia11Model.FK__Pracownic__ID_Et__4AB81AF0" ManuallyRouted="false" />
+        <AssociationConnector Association="Szwalnia11Model.FK__Faktury_Z__ID_Gr__5DCAEF64" ManuallyRouted="false" />
+        <AssociationConnector Association="Szwalnia11Model.FK__Znajomosc__ID_Je__534D60F1" ManuallyRouted="false" />
+        <AssociationConnector Association="Szwalnia11Model.FK__Zamowieni__ID_Kl__571DF1D5" ManuallyRouted="false" />
+        <AssociationConnector Association="Szwalnia11Model.FK__Kontrola___ID_Pr__69FBBC1F" ManuallyRouted="false" />
+        <AssociationConnector Association="Szwalnia11Model.FK__Umowy_Kur__ID_Ku__03F0984C" ManuallyRouted="false" />
+        <AssociationConnector Association="Szwalnia11Model.FK__Maszyny__ID_Rodz__42E1EEFE" ManuallyRouted="false" />
+        <AssociationConnector Association="Szwalnia11Model.FK__Maszyny__ID_Srod__41EDCAC5" ManuallyRouted="false" />
+        <AssociationConnector Association="Szwalnia11Model.FK__Obsluga_T__ID_Ma__45BE5BA9" ManuallyRouted="false" />
+        <AssociationConnector Association="Szwalnia11Model.FK__Przydzial__ID_Ma__671F4F74" ManuallyRouted="false" />
+        <AssociationConnector Association="Szwalnia11Model.FK__Maszyny_P__ID_Pr__3E1D39E1" ManuallyRouted="false" />
+        <AssociationConnector Association="Szwalnia11Model.FK__Maszyny_P__ID_Ro__3F115E1A" ManuallyRouted="false" />
+        <AssociationConnector Association="Szwalnia11Model.FK__Material___ID_Pr__5D95E53A" ManuallyRouted="false" />
+        <AssociationConnector Association="Szwalnia11Model.FK__Obsluga_T__ID_Pr__47A6A41B" ManuallyRouted="false" />
+        <AssociationConnector Association="Szwalnia11Model.FK__Obsluga_T__ID_Ro__46B27FE2" ManuallyRouted="false" />
+        <AssociationConnector Association="Szwalnia11Model.FK__Stanowisk__ID_Pe__33D4B598" ManuallyRouted="false" />
+        <AssociationConnector Association="Szwalnia11Model.FK__Polki__ID_Rozmia__6B24EA82" ManuallyRouted="false" />
+        <AssociationConnector Association="Szwalnia11Model.FK__Zawartosc__ID_Po__151B244E" ManuallyRouted="false" />
+        <AssociationConnector Association="Szwalnia11Model.FK__Pracownic__ID_Pr__48CFD27E" ManuallyRouted="false" />
+        <AssociationConnector Association="Szwalnia11Model.FK__Proces_Te__ID_Pr__37703C52" ManuallyRouted="false" />
+        <AssociationConnector Association="Szwalnia11Model.FK__Przydzial__ID_Pr__662B2B3B" ManuallyRouted="false" />
+        <AssociationConnector Association="Szwalnia11Model.FK__Urlop__ID_Pracow__4222D4EF" ManuallyRouted="false" />
+        <AssociationConnector Association="Szwalnia11Model.FK__Zamowieni__ID_Pr__0C85DE4D" ManuallyRouted="false" />
+        <AssociationConnector Association="Szwalnia11Model.FK__Zamowieni__ID_Pr__5812160E" ManuallyRouted="false" />
+        <AssociationConnector Association="Szwalnia11Model.FK__Znajomosc__ID_Pr__5441852A" ManuallyRouted="false" />
+        <AssociationConnector Association="Szwalnia11Model.FK__Pracownic__ID_Ro__4BAC3F29" ManuallyRouted="false" />
+        <AssociationConnector Association="Szwalnia11Model.FK__Pracownic__ID_St__49C3F6B7" ManuallyRouted="false" />
+        <AssociationConnector Association="Szwalnia11Model.FK__Proces_Pr__ID_Za__59C55456" ManuallyRouted="false" />
+        <AssociationConnector Association="Szwalnia11Model.FK__Realizacj__ID_Pr__6166761E" ManuallyRouted="false" />
+        <AssociationConnector Association="Szwalnia11Model.FK__Proces_Za__ID_Pr__4E53A1AA" ManuallyRouted="false" />
+        <AssociationConnector Association="Szwalnia11Model.FK__Proces_Za__ID_Za__4F47C5E3" ManuallyRouted="false" />
+        <AssociationConnector Association="Szwalnia11Model.FK__Przydzial__ID_Re__65370702" ManuallyRouted="false" />
+        <AssociationConnector Association="Szwalnia11Model.FK__Realizacj__ID_Et__625A9A57" ManuallyRouted="false" />
+        <AssociationConnector Association="Szwalnia11Model.FK__Urlop__ID_Rodzaj__44FF419A" ManuallyRouted="false" />
+        <AssociationConnector Association="Szwalnia11Model.FK__Zamowieni__ID_st__114A936A" ManuallyRouted="false" />
+        <AssociationConnector Association="Szwalnia11Model.FK__Zamowieni__ID_Um__0D7A0286" ManuallyRouted="false" />
+        <AssociationConnector Association="Szwalnia11Model.FK__Urlop__ID_Wymiar__45F365D3" ManuallyRouted="false" />
+        <AssociationConnector Association="Szwalnia11Model.FK__Zamowieni__ID_Za__0B91BA14" ManuallyRouted="false" />
+        <AssociationConnector Association="Szwalnia11Model.FK__Zamowieni__ID_Za__10566F31" ManuallyRouted="false" />
+        <AssociationConnector Association="Szwalnia11Model.FK__Zamowieni__ID_Za__2A164134" ManuallyRouted="false" />
+        <AssociationConnector Association="Szwalnia11Model.FK__Zawartosc__ID_Do__17036CC0" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

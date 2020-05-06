@@ -33,8 +33,17 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -46,8 +55,244 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Program.cs" />
+    <Compile Include="BazaSzwalnia.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>BazaSzwalnia.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="BazaSzwalnia.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>BazaSzwalnia.tt</DependentUpon>
+    </Compile>
+    <Compile Include="BazaSzwalnia.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>BazaSzwalnia.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Czesci_Obsluga.cs">
+      <DependentUpon>BazaSzwalnia.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Dokumentacja_Proces.cs">
+      <DependentUpon>BazaSzwalnia.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Dokumentacje.cs">
+      <DependentUpon>BazaSzwalnia.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Dostarczenia_Wewn.cs">
+      <DependentUpon>BazaSzwalnia.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Dostarczenia_Zewn.cs">
+      <DependentUpon>BazaSzwalnia.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Dostawcy_Zaopatrzenie.cs">
+      <DependentUpon>BazaSzwalnia.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Dostawy_Zawartosc.cs">
+      <DependentUpon>BazaSzwalnia.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Dzialy.cs">
+      <DependentUpon>BazaSzwalnia.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Elementy.cs">
+      <DependentUpon>BazaSzwalnia.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Elementy_Cechy.cs">
+      <DependentUpon>BazaSzwalnia.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Elementy_Cechy_Slownik.cs">
+      <DependentUpon>BazaSzwalnia.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Elementy_Jednostki.cs">
+      <DependentUpon>BazaSzwalnia.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Elementy_Proces.cs">
+      <DependentUpon>BazaSzwalnia.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Elementy_Typy.cs">
+      <DependentUpon>BazaSzwalnia.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Etapy_W_Procesie.cs">
+      <DependentUpon>BazaSzwalnia.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Etat.cs">
+      <DependentUpon>BazaSzwalnia.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Faktury_Zewnetrzne.cs">
+      <DependentUpon>BazaSzwalnia.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Grupa.cs">
+      <DependentUpon>BazaSzwalnia.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Jezyk.cs">
+      <DependentUpon>BazaSzwalnia.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Klienci.cs">
+      <DependentUpon>BazaSzwalnia.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Kontrola_Efektywnosci.cs">
+      <DependentUpon>BazaSzwalnia.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Kurierzy.cs">
+      <DependentUpon>BazaSzwalnia.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Maszyny.cs">
+      <DependentUpon>BazaSzwalnia.tt</DependentUpon>
+    </Compile>
+    <Compile Include="MaszynyProcesSzukaj.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MaszynyProcesSzukaj.Designer.cs">
+      <DependentUpon>MaszynyProcesSzukaj.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MaszynyProcesWykonaj.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MaszynyProcesWykonaj.Designer.cs">
+      <DependentUpon>MaszynyProcesWykonaj.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Maszyny_Proces.cs">
+      <DependentUpon>BazaSzwalnia.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Material_Na_Produkcji.cs">
+      <DependentUpon>BazaSzwalnia.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Miejsca.cs">
+      <DependentUpon>BazaSzwalnia.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Obsluga_Techniczna.cs">
+      <DependentUpon>BazaSzwalnia.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Oferta.cs">
+      <DependentUpon>BazaSzwalnia.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Pensja.cs">
+      <DependentUpon>BazaSzwalnia.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Polki.cs">
+      <DependentUpon>BazaSzwalnia.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Polki_Rozmiary.cs">
+      <DependentUpon>BazaSzwalnia.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Pracownicy.cs">
+      <DependentUpon>BazaSzwalnia.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Pracownicy_Zatrudnienie.cs">
+      <DependentUpon>BazaSzwalnia.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Proces_Produkcyjny.cs">
+      <DependentUpon>BazaSzwalnia.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Proces_Technologiczny.cs">
+      <DependentUpon>BazaSzwalnia.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Proces_Zamowienie.cs">
+      <DependentUpon>BazaSzwalnia.tt</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Przydzial_Zasobow.cs">
+      <DependentUpon>BazaSzwalnia.tt</DependentUpon>
+    </Compile>
+    <Compile Include="PrzygotowanieProdukcji.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PrzygotowanieProdukcji.Designer.cs">
+      <DependentUpon>PrzygotowanieProdukcji.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Realizacja_Procesu.cs">
+      <DependentUpon>BazaSzwalnia.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Regaly.cs">
+      <DependentUpon>BazaSzwalnia.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Rodzaj_Dokumentacji.cs">
+      <DependentUpon>BazaSzwalnia.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Rodzaj_Etapu.cs">
+      <DependentUpon>BazaSzwalnia.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Rodzaj_Maszyny.cs">
+      <DependentUpon>BazaSzwalnia.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Rodzaj_Obslugi.cs">
+      <DependentUpon>BazaSzwalnia.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Rodzaj_Umowy.cs">
+      <DependentUpon>BazaSzwalnia.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Rodzaj_Urlopu.cs">
+      <DependentUpon>BazaSzwalnia.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Srodki_Trwale.cs">
+      <DependentUpon>BazaSzwalnia.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Stanowisko.cs">
+      <DependentUpon>BazaSzwalnia.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Statusy.cs">
+      <DependentUpon>BazaSzwalnia.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Umowy_Kurierzy.cs">
+      <DependentUpon>BazaSzwalnia.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Urlop.cs">
+      <DependentUpon>BazaSzwalnia.tt</DependentUpon>
+    </Compile>
+    <Compile Include="vCechyElementu.cs">
+      <DependentUpon>BazaSzwalnia.tt</DependentUpon>
+    </Compile>
+    <Compile Include="vMaszyny_rodzaj_liczba.cs">
+      <DependentUpon>BazaSzwalnia.tt</DependentUpon>
+    </Compile>
+    <Compile Include="vMaszyny_serwis.cs">
+      <DependentUpon>BazaSzwalnia.tt</DependentUpon>
+    </Compile>
+    <Compile Include="vObsluga.cs">
+      <DependentUpon>BazaSzwalnia.tt</DependentUpon>
+    </Compile>
+    <Compile Include="vPolki_na_regalach.cs">
+      <DependentUpon>BazaSzwalnia.tt</DependentUpon>
+    </Compile>
+    <Compile Include="vRealizacjaProcesuProdukcyjnegoDetails.cs">
+      <DependentUpon>BazaSzwalnia.tt</DependentUpon>
+    </Compile>
+    <Compile Include="vSrednia_ilosc_maszyn.cs">
+      <DependentUpon>BazaSzwalnia.tt</DependentUpon>
+    </Compile>
+    <Compile Include="vSuma_czasu_procesu.cs">
+      <DependentUpon>BazaSzwalnia.tt</DependentUpon>
+    </Compile>
+    <Compile Include="vZawartosc_polki.cs">
+      <DependentUpon>BazaSzwalnia.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Wymiar_Urlopu.cs">
+      <DependentUpon>BazaSzwalnia.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Zamowienia.cs">
+      <DependentUpon>BazaSzwalnia.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Zamowienia_Dostawy.cs">
+      <DependentUpon>BazaSzwalnia.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Zamowienia_Przydzial.cs">
+      <DependentUpon>BazaSzwalnia.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Zamowienie_Element.cs">
+      <DependentUpon>BazaSzwalnia.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Zawartosc.cs">
+      <DependentUpon>BazaSzwalnia.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Znajomosc_Jezykow.cs">
+      <DependentUpon>BazaSzwalnia.tt</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="MaszynyProcesSzukaj.resx">
+      <DependentUpon>MaszynyProcesSzukaj.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MaszynyProcesWykonaj.resx">
+      <DependentUpon>MaszynyProcesWykonaj.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -57,6 +302,17 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="PrzygotowanieProdukcji.resx">
+      <DependentUpon>PrzygotowanieProdukcji.cs</DependentUpon>
+    </EmbeddedResource>
+    <EntityDeploy Include="BazaSzwalnia.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>BazaSzwalnia.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="BazaSzwalnia.edmx.diagram">
+      <DependentUpon>BazaSzwalnia.edmx</DependentUpon>
+    </None>
+    <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -69,6 +325,21 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="BazaSzwalnia.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>BazaSzwalnia.Context.cs</LastGenOutput>
+      <DependentUpon>BazaSzwalnia.edmx</DependentUpon>
+    </Content>
+    <Content Include="BazaSzwalnia.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>BazaSzwalnia.edmx</DependentUpon>
+      <LastGenOutput>BazaSzwalnia.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
